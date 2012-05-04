@@ -1,4 +1,19 @@
 Disrupt::Application.routes.draw do
+  devise_for :users
+  
+  as :user do
+  	get "/login" => "devise/sessions#new"
+  	get "/logout" => "devise/sessions#destroy"
+  	get "signup" => "devise/registrations#new"
+  end
+  
+
+  match '/about' => "static_pages#about"
+
+  get "static_pages/contact"
+
+  get "static_pages/volunteer"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +63,7 @@ Disrupt::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'static_pages#about'
 
   # See how all your routes lay out with "rake routes"
 
