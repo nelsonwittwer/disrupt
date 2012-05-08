@@ -1,6 +1,19 @@
 Disrupt::Application.routes.draw do
-  devise_for :users
+
+  resources :markets
+
+  resources :roles
+
+  resources :startups do
+  	resources :discussions
+  end
   
+
+  devise_for :users
+  namespace :user do
+  	root :to => "users#welcome"
+  end
+
   as :user do
   	get "/login" => "devise/sessions#new"
   	get "/logout" => "devise/sessions#destroy"

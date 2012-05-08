@@ -1,0 +1,10 @@
+<h1>Editing startup</h1>
+
+<%= render 'form' %>
+
+<%= form_for @startup, :url => startup_path, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :logo %>
+<% end %>
+
+<%= link_to 'Show', @startup %> |
+<%= link_to 'Back', startups_path %>

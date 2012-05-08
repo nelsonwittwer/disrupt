@@ -1,0 +1,59 @@
+<%= form_for(@startup) do |f| %>
+  <% if @startup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@startup.errors.count, "error") %> prohibited this startup from being saved:</h2>
+
+      <ul>
+      <% @startup.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">	
+  <% for market in Market.find(:all) %>
+  	<div>
+  		<%= check_box_tag "startup[market_ids][]", market.id, @startup.markets.include?(market) %>
+        <%= market.name %>
+    </div>
+  <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :twitter %><br />
+    <%= f.text_field :twitter %>
+  </div>
+  <div class="field">
+    <%= f.label :crunchbase %><br />
+    <%= f.text_field :crunchbase %>
+  </div>
+  <div class="field">
+    <%= f.label :screenshot %><br />
+    <%= f.text_field :screenshot %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  
+  <div class="field">
+    <p>
+    <%= f.file_field :logo %>
+  	</p>
+  <p>
+    <%= f.label :remote_logo_url, "or image URL" %><br />
+    <%= f.text_field :remote_logo_url %>
+  </p>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
