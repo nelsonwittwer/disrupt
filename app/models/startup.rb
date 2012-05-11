@@ -6,5 +6,4 @@ class Startup < ActiveRecord::Base
   
   mount_uploader :logo, LogoUploader
   has_many :discussions, :as => :imageable
-  has_and_belongs_to_many :markets
 end

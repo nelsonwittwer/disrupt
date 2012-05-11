@@ -2,8 +2,6 @@ Disrupt::Application.routes.draw do
 
   resources :comments
 
-  resources :markets
-
   resources :roles
   
   resources :discussions do
@@ -32,10 +30,8 @@ Disrupt::Application.routes.draw do
   
 
   match '/about' => "static_pages#about"
-
-  get "static_pages/contact"
-
-  get "static_pages/volunteer"
+  match '/contact' => "static_pages#contact"
+  match '/volunteer' => "static_pages#volunteer"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
