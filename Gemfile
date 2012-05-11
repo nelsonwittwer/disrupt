@@ -9,11 +9,24 @@ gem 'pg'
 gem 'thin'
 gem 'devise'
 gem 'cancan'
-gem 'rspec'
 gem 'carrierwave'
 gem 'bootstrap-sass', '2.0.0'
 
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+end
+
+group :test do
+  gem 'capybara', '1.1.2'
+  gem 'factory_girl_rails', '1.4.0'
+  gem 'database_cleaner', '0.7.0'
+  gem 'guard-spork', '0.3.2'  
+  gem 'spork', '0.9.0'
+  # gem 'rb-fsevent', '0.4.3.1', require: false
+  # gem 'growl', '1.0.3'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.

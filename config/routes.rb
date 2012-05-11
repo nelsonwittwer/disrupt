@@ -31,7 +31,6 @@ Disrupt::Application.routes.draw do
 
   match '/about' => "static_pages#about"
   match '/contact' => "static_pages#contact"
-  match '/volunteer' => "static_pages#volunteer"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
