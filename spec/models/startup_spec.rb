@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Startup do
-	before{ @startup = Startup.new(name:"FooBar.com", description: "asdf")}
+	before{ @startup = Startup.new(name:"FooBar.com", description: "asdf", url:"foo.bar.com")}
 
 	subject {@startup}
 
