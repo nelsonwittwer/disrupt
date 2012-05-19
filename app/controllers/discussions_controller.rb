@@ -1,6 +1,7 @@
 class DiscussionsController < ApplicationController
   before_filter :get_startup
 
+
   def get_startup
     @startup = Startup.find(params[:startup_id])
   end
@@ -19,6 +20,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions/1.json
   def show
     @discussion = @startup.discussions.find(params[:id])
+    @comments = @discussion.comments.scoped
 
     respond_to do |format|
       format.html # show.html.erb

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <%= image_tag @startup.logo%>
@@ -27,12 +27,12 @@
 </p>
 <p>
 <% @startup.discussions.each do |d| %>
-      <tr>
-        <td><%= d.title %></td>
-        <td><%= link_to 'Edit', edit_startup_discussion_path(@startup, d) %></td>
-        <td><%= link_to 'Show', startup_discussion_path(@startup, d) %></td>
-        <td><%= link_to 'Delete', [@startup, d], confirm: 'Are you sure?', method: :delete %></td>
-      </tr>
+      <ul>
+        <li><%= d.title %></li>
+        <%= link_to 'Edit', edit_startup_discussion_path(@startup, d) %>
+        <%= link_to 'Show', startup_discussion_path(@startup, d) %>
+        <%= link_to 'Delete', [@startup, d], confirm: 'Are you sure?', method: :delete %>
+      </ul>
   <% end %>
 </p>
 

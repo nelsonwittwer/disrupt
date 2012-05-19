@@ -1,19 +1,11 @@
 Disrupt::Application.routes.draw do
 
-  resources :comments
-
   resources :roles
-  
-  resources :discussions do
-  	resources :comments
-  end
-  
-  resources :comments do
-  	resources :comments
-  end
 
   resources :startups do
-  	resources :discussions
+  	resources :discussions do
+      resources :comments 
+    end
   end
   
 

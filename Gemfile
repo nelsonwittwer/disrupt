@@ -11,6 +11,7 @@ gem 'devise'
 gem 'cancan'
 gem 'carrierwave'
 gem 'bootstrap-sass', '2.0.0'
+gem 'ancestry'
 
 
 group :development, :test do

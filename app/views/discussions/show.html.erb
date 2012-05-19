@@ -1,10 +1,11 @@
+<% provide(:title, @discussion.title) %>
 <p id="notice"><%= notice %></p>
 
 
-<h1><%= @discussion.title %></h1>
-<h2>Comments</h2>
-<p><%= link_to 'Add a Comment', new_discussion_comment_path(@discussion) %></p>
-<ul class="comment_list">
-  <%= render :partial => 'comments/comment', :collection => @discussion.comments %>
-</ul>
+<h2><%= @discussion.title %></h2>
+
+<%= nested_comments @comments.arrange(:order => :created_at) %>
+
+<p><%= link_to 'Add a Comment', new_startup_discussion_comment_path(@startup, @discussion) %></p>
+
 

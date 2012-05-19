@@ -11,19 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120508030956) do
+ActiveRecord::Schema.define(:version => 20120516233932) do
 
   create_table "comments", :force => true do |t|
-    t.text     "body"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
+    t.string   "text"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "ancestry"
     t.integer  "imageable_id"
     t.string   "imageable_type"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
   end
 
-  add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
+  add_index "comments", ["ancestry"], :name => "index_comments_on_ancestry"
 
   create_table "discussions", :force => true do |t|
     t.string   "title"
@@ -31,6 +30,13 @@ ActiveRecord::Schema.define(:version => 20120508030956) do
     t.string   "imageable_type"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "url"
+    t.boolean  "logo"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "markets", :force => true do |t|

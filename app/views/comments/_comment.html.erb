@@ -1,9 +1,4 @@
-<li class="comment">
-  <%= comment.title %>
-  <p><%= link_to 'Add a Reply', new_comment_comment_path(comment) %></p>
-  <% unless comment.comments.empty? %>
-    <ul class="comment_list">
-      <%= render :partial => 'comments/comment', :collection => comment.comments %>
-    </ul>
-  <% end %>
-</li>
+<h3><%= comment.text %></h3>
+	<%= link_to "reply", new_startup_discussion_comment_path(@startup, @discussion, :parent_id =>comment)%>
+	<%= link_to "| edit", edit_startup_discussion_comment_path(@startup, @discussion, comment)%>
+	<%= link_to "| delete", [@startup, @discussion, comment], confirm: 'Are you sure?', method: :delete%>
