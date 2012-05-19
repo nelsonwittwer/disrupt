@@ -1,5 +1,6 @@
 class DiscussionsController < ApplicationController
   before_filter :get_startup
+  
 
 
   def get_startup
@@ -32,6 +33,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions/new.json
   def new
     @discussion = @startup.discussions.new
+    @topics = Topic.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,6 +44,8 @@ class DiscussionsController < ApplicationController
   # GET /discussions/1/edit
   def edit
     @discussion = @startup.discussions.find(params[:id])
+    @topics = Topic.all
+
   end
 
   # POST /discussions

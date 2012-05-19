@@ -1,5 +1,5 @@
 @import "bootstrap";
-
+@import "bootstrap-responsive";
 /* mixins, variables, etc. */
 
 $dark: #003354;
@@ -7,6 +7,7 @@ $base: #91BED4;
 $light: #D9E8F5;
 $lighter: #fff;
 $highlight: #F26101;
+$lgray: #ccc;
 
 
 @mixin box_sizing {
@@ -38,6 +39,13 @@ textarea {
   h1 {
     margin-bottom: 10px;
   }
+}
+
+.rounded{
+ height: 60px;
+ -moz-border-radius:75px;
+ -webkit-border-radius: 75px;
+ width: 60px;
 }
 
 /* typography */
@@ -126,12 +134,44 @@ footer {
   @include box_sizing;
 }
 
-/* discussion */
+/* startup profile */
 
+.startup-discussion{
+  margin-bottom:20px;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+  border-color:$lgray; 
+   
+  h3{
+    font-weight:normal;
+  }
+}
 .discussion{
-  height:40px;
+  
+}
+
+.discussion-meta{
+  margin-left:160px;
+}
+
+.topic-icon{
+    
+  background-color: $lgray;
+  height: 50px;
+  width:50px;
 
 }
+
+.vote-discussion{
+  height:50px;
+  width: 50px;
+  background-color:#ccc;
+
+}
+
+/* discussion */
+
+
 
 /* comments */
 

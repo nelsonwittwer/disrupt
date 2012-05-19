@@ -27,12 +27,21 @@
 </p>
 <p>
 <% @startup.discussions.each do |d| %>
-      <ul>
-        <li><%= d.title %></li>
-        <%= link_to 'Edit', edit_startup_discussion_path(@startup, d) %>
-        <%= link_to 'Show', startup_discussion_path(@startup, d) %>
-        <%= link_to 'Delete', [@startup, d], confirm: 'Are you sure?', method: :delete %>
-      </ul>
+<div class="row startup-discussion">
+  <div class="vote-discussion rounded span1">
+    
+  </div>
+  <div class="topic-icon rounded span1">
+    <%= image_tag d.topic.icon %>
+  </div>
+  <div class="discussion span10">
+    <h3><%= link_to d.title, startup_discussion_path(@startup, d) %></h3>
+  </div>
+  <div class="discussion-meta span10 offset2">
+  <%= link_to 'Edit', edit_startup_discussion_path(@startup, d) %>
+  <%= link_to 'Delete', [@startup, d], confirm: 'Are you sure?', method: :delete %>
+  </div>
+</div>          
   <% end %>
 </p>
 

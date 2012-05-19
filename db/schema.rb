@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120516233932) do
+ActiveRecord::Schema.define(:version => 20120519014400) do
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(:version => 20120516233932) do
     t.string   "imageable_type"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "topic_id"
   end
+
+  add_index "discussions", ["topic_id"], :name => "index_discussions_on_topic_id"
 
   create_table "images", :force => true do |t|
     t.string   "url"
@@ -75,6 +78,13 @@ ActiveRecord::Schema.define(:version => 20120516233932) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.string   "logo"
+  end
+
+  create_table "topics", :force => true do |t|
+    t.string   "name"
+    t.string   "icon"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

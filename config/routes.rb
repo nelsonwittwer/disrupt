@@ -1,5 +1,7 @@
 Disrupt::Application.routes.draw do
 
+  resources :topics
+
   resources :roles
 
   resources :startups do
@@ -15,8 +17,8 @@ Disrupt::Application.routes.draw do
   end
 
   as :user do
-  	get "/login" => "devise/sessions#new"
-  	get "/logout" => "devise/sessions#destroy"
+  	get "/signin" => "devise/sessions#new"
+  	get "/signout" => "devise/sessions#destroy"
   	get "/signup" => "devise/registrations#new"
   end
   
