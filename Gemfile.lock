@@ -184,7 +184,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   database_cleaner (= 0.7.0)
   devise
-  factory_girl_rails (= 1.4.0)
+  factory_girl_rails
   guard-rspec
   guard-spork (= 0.3.2)
   jquery-rails

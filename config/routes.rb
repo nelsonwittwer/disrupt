@@ -17,7 +17,7 @@ Disrupt::Application.routes.draw do
   as :user do
   	get "/login" => "devise/sessions#new"
   	get "/logout" => "devise/sessions#destroy"
-  	get "signup" => "devise/registrations#new"
+  	get "/signup" => "devise/registrations#new"
   end
   
 
@@ -73,7 +73,7 @@ Disrupt::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'static_pages#about'
+  root :to => 'startups#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,19 +1,24 @@
 require 'spec_helper'
 
 describe Startup do
-	before{ @startup = Startup.new(name:"FooBar.com", description: "asdf", url:"foo.bar.com")}
 
-	subject {@startup}
+    subject {page}
+    
+    describe "profile page" do
+    	let(:startup){FactoryGirl.create(:startup)}
+        
+        before { visit startup_path(startup) }
 
-	it { should respond_to(:crunchbase) }
-    it { should respond_to(:description) }
-    it { should respond_to(:name) }
-    it { should respond_to(:screenshot) }
-    it { should respond_to(:twitter) }
-    it { should respond_to(:url) }
-    it { should respond_to(:logo) }
+    	it { should respond_to(:crunchbase) }
+        it { should respond_to(:description) }
+        it { should respond_to(:name) }
+        it { should respond_to(:twitter) }
+        it { should respond_to(:url) }
+        it { should respond_to(:logo) }
 
-    it {should be_valid}
+        it {should be_valid}
+
+    end
 
 end
 
