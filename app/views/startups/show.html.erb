@@ -38,7 +38,7 @@
     <h3><%= link_to d.title, startup_discussion_path(@startup, d) %></h3>
   </div>
   <div class="discussion-meta span10 offset2">
-  <p>Posted by <%= d.user.name %> (32)</p>
+  Posted by <%= d.user.name %> (32)
   <%= link_to 'Edit', edit_startup_discussion_path(@startup, d) %>
   <%= link_to 'Delete', [@startup, d], confirm: 'Are you sure?', method: :delete %>
   </div>

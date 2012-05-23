@@ -1,5 +1,5 @@
-<h3><%= comment.text %></h3>
-<h4><%= comment.user.name %></h4>
+<h3><%= comment.text %></h3><p><%=comment.user.name %></p>
+
 	<%= link_to "reply", new_startup_discussion_comment_path(@startup, @discussion, :parent_id =>comment)%>
 	<%= link_to "| edit", edit_startup_discussion_comment_path(@startup, @discussion, comment)%>
 	<%= link_to "| delete", [@startup, @discussion, comment], confirm: 'Are you sure?', method: :delete%>
