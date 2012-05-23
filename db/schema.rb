@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120519014400) do
+ActiveRecord::Schema.define(:version => 20120522005923) do
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -20,9 +20,11 @@ ActiveRecord::Schema.define(:version => 20120519014400) do
     t.string   "ancestry"
     t.integer  "imageable_id"
     t.string   "imageable_type"
+    t.integer  "user_id"
   end
 
   add_index "comments", ["ancestry"], :name => "index_comments_on_ancestry"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "discussions", :force => true do |t|
     t.string   "title"
@@ -31,9 +33,11 @@ ActiveRecord::Schema.define(:version => 20120519014400) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "topic_id"
+    t.integer  "user_id"
   end
 
   add_index "discussions", ["topic_id"], :name => "index_discussions_on_topic_id"
+  add_index "discussions", ["user_id"], :name => "index_discussions_on_user_id"
 
   create_table "images", :force => true do |t|
     t.string   "url"
@@ -104,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20120519014400) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

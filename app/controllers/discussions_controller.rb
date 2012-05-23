@@ -32,7 +32,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions/new
   # GET /discussions/new.json
   def new
-    @discussion = @startup.discussions.new
+    @discussion = @startup.discussions.new(:user_id => current_user.id)
     @topics = Topic.all
 
     respond_to do |format|
@@ -44,7 +44,6 @@ class DiscussionsController < ApplicationController
   # GET /discussions/1/edit
   def edit
     @discussion = @startup.discussions.find(params[:id])
-    @topics = Topic.all
 
   end
 

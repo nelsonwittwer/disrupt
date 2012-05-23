@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   # GET /comments/new.json
   def new
-    @comment = @discussion.comments.new(:parent_id => params[:parent_id])
+    @comment = @discussion.comments.new(:parent_id => params[:parent_id], :user_id => current_user.id)
 
     respond_to do |format|
       format.html # new.html.erb

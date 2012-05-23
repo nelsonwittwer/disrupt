@@ -1,8 +1,6 @@
 <% provide(:title, @discussion.title) %>
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @topic.icon %>
-<h2><%= @discussion.title %></h2>
 
 <%= nested_comments @comments.arrange(:order => :created_at) %>
 

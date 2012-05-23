@@ -1,16 +1,8 @@
 
-<%= form_for [@startup, @discussion, @comment] do |f| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+<%= simple_form_for [@startup, @discussion, @comment] do |f| %>
+  <%= f.input :text %>
+  <%= f.hidden_field :user_id %>
 
-    </div>
-  <% end %>
-  <%= f.hidden_field :parent_id %>
-
-  <div class="field">
-    <%= f.text_field :text, class: "span7"%>
-  </div>
   <div class="actions">
     <br /><%= f.submit %>
   </div>
