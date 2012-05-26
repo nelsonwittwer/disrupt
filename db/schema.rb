@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120522005923) do
+ActiveRecord::Schema.define(:version => 20120526002358) do
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -82,6 +82,22 @@ ActiveRecord::Schema.define(:version => 20120522005923) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.string   "logo"
+  end
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "startup_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "taggings", ["startup_id"], :name => "index_taggings_on_startup_id"
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "topics", :force => true do |t|

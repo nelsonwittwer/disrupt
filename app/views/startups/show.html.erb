@@ -19,6 +19,9 @@
 <p>
   <%= @startup.screenshot %>
 </p>
+<% @startup.tags.each do |tag| %>
+  <li><%= tag.name %></li>
+<% end %>
 
 
 
