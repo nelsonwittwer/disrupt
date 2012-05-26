@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="field"<h1>asdf</h1>
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
@@ -28,12 +28,13 @@
       <%= f.password_field :password_confirmation %>
     </div>
   <% end %>
-  <% for role in Role.find(:all) %>
-    <div>
-      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-      <%= role.name %>
-    </div>
-  <% end %>
+  <p>
+    <%= f.label :roles %><br />
+    <% for role in @user.roles %>
+      <%= check_box_tag "user[roles][]", role, @user.roles.include?(role) %>
+    <% end %>
+    <%= hidden_field_tag "user[roles][]", "" %>
+  </p>
   <div class="actions">
     <%= f.submit %>
   </div>

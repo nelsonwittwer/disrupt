@@ -8,4 +8,8 @@ class Startup < ActiveRecord::Base
   has_many :discussions, dependent: :destroy, :as => :imageable
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
+
+   
+
+
 end

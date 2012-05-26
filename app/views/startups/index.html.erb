@@ -22,12 +22,17 @@
     <td><%= startup.screenshot %></td>
     <td><%= startup.description %></td>
     <td><%= link_to 'Show', startup %></td>
-    <td><%= link_to 'Edit', edit_startup_path(startup) %></td>
-    <td><%= link_to 'Destroy', startup, confirm: 'Are you sure?', method: :delete %></td>
+    <% if can? :update, startup %>
+        <td><%= link_to 'Edit', edit_startup_path(startup) %></td>
+    <% end %>
+    <% if can? :destroy, startup %>    
+        <td><%= link_to 'Destroy', startup, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Startup', new_startup_path %>
+<% if can? :create, Startup %>
+    <%= link_to 'New Startup', new_startup_path %>
+<% end %>

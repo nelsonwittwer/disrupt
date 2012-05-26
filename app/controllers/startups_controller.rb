@@ -1,5 +1,5 @@
 class StartupsController < ApplicationController
-
+load_and_authorize_resource
 
   # GET /startups
   # GET /startups.json
