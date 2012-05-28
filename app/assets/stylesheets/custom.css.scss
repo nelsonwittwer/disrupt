@@ -24,7 +24,11 @@ html {
 
 body {
   padding-top: 60px;
+  background-image:url('light_wool.png');
+  background-repeat:repeat;
+
 }
+  
 
 section {
   overflow: auto;
@@ -46,6 +50,21 @@ textarea {
  -moz-border-radius:75px;
  -webkit-border-radius: 75px;
  width: 60px;
+}
+
+.rounded-corners {
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.shadow {
+-moz-box-shadow: 3px 3px 4px #ccc;
+-webkit-box-shadow: 3px 3px 4px #ccc;
+box-shadow: 3px 3px 4px #ccc;
+/* For IE 8 */
+-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
 }
 
 /* typography */
@@ -93,6 +112,11 @@ p {
   }	
 }
 
+.logo-small {
+padding-top: 6px;
+padding-right: 4px;
+}
+
 .navbar-inner{
     background-image:none;
     background-color:white;
@@ -134,7 +158,49 @@ footer {
   @include box_sizing;
 }
 
+/* startup index */
+.startup_index_row{
+  margin-bottom:30px;
+  background-color:white;
+}
+
+.startup_index_row_2{
+  margin-bottom:-5px;
+}
+
+.startup_index_picture{
+  margin-left:0px;
+}
+
+.rounded-left-side{
+  -moz-border-top-left-radius: 8px;
+  -webkit-border-top-left-radius: 8px;
+  -khtml-border-top-left-radius: 8px;
+  border-top-left-radius: 8px;
+  -moz-border-bottom-left-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -khtml-border-bottom-left-radius: 8px;
+  border-top-bottom-radius: 8px;
+}
+.startup_index_logo{
+  margin-top:10px;
+}
+
+.su_index_descr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
 /* startup profile */
+
+.startup_profile{
+  background-color:white;
+}
+
+.su_logo{
+  padding-bottom:20px;
+}
 
 .startup-discussion{
   margin-bottom:20px;
@@ -146,8 +212,8 @@ footer {
     font-weight:normal;
   }
 }
-.discussion{
-  
+.discussions{
+  background-color:white;
 }
 
 .discussion-meta{

@@ -1,6 +1,6 @@
 Disrupt::Application.routes.draw do
 
-  resources :taggings
+  
 
   resources :tags
 
@@ -9,6 +9,7 @@ Disrupt::Application.routes.draw do
   resources :roles
 
   resources :startups do
+    resources :pictures
   	resources :discussions do
       resources :comments 
     end

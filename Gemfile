@@ -9,6 +9,7 @@ gem 'pg'
 gem 'thin'
 gem 'devise'
 gem 'cancan'
+gem "rmagick"
 gem 'carrierwave'
 gem 'bootstrap-sass', '2.0.0'
 gem 'ancestry'

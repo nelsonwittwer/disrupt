@@ -5,11 +5,14 @@ class Startup < ActiveRecord::Base
   
   
   mount_uploader :logo, LogoUploader
-  has_many :discussions, dependent: :destroy, :as => :imageable
+  has_many :discussions, :dependent => :destroy, :as => :imageable
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
+  has_many :pictures, :dependent => :destroy
 
-   
+  def home_page(s)
+  	s = "http://"+s
+  end
 
 
 end

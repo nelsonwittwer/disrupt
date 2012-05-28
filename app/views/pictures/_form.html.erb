@@ -1,0 +1,7 @@
+<%= simple_form_for [@startup, @picture] do |f| %>
+  <%= f.file_field :url %>
+
+  <div class="actions">
+    <br /><%= f.submit %>
+  </div>
+<% end %>

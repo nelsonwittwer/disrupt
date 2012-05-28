@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120526002358) do
+ActiveRecord::Schema.define(:version => 20120526163733) do
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(:version => 20120526002358) do
     t.integer "market_id"
     t.integer "startup_id"
   end
+
+  create_table "pictures", :force => true do |t|
+    t.string   "url"
+    t.integer  "startup_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "pictures", ["startup_id"], :name => "index_pictures_on_startup_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

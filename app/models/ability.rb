@@ -7,7 +7,7 @@ class Ability
     if user.role? :admin
       can :manage, :all
     elsif user.role? :moderator
-      can :manage, Startup, Discussion, Comment      
+      can :manage, Startup, Discussion, Comment, Picture      
     elsif user.role? :member
       can :read, :all
       can :create, Comment

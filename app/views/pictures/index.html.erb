@@ -1,0 +1,22 @@
+<h1>Listing pictures</h1>
+
+<table>
+  <tr>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @startup.pictures.each do |picture| %>
+  <tr>
+    <td><%= image_tag picture.url %></td>
+    <td><%= link_to 'Edit', edit_startup_picture_path(@startup, picture) %></td>
+    <td><%= link_to 'Destroy', [@startup, picture], confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Picture', new_startup_picture_path(@startup) %>
