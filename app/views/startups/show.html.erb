@@ -1,71 +1,122 @@
 
-<div class="row startup_profile rounded-corners shadow">
-  <div class="span10">
-  <div id="myCarousel" class="carousel">
-    <!-- Carousel items -->
-    <div class="carousel-inner">
-      <% for picture in @startup.pictures %>
-        <% if picture==@startup.pictures.first%>
-          <div class="active item"><%=image_tag @startup.pictures.first.url, :class => "rounded-left-side"%></div>
-        <% else %>
-          <div class="item"><%= image_tag picture.url, :class => "rounded-left-side" %></div>
-        <% end %>  
-      <% end %>
-  </div>
-    <!-- Carousel nav -->
-    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-  </div>
-  </div>
-  <div class="span2 su_meta">
-    <%= image_tag @startup.logo.url, :class => "su_logo" %>
-    <p>
-      <%= @startup.description %>
-    </p>
-    <h2><%= link_to @startup.url, "http://"+@startup.url.to_s, :target => '_blank'%></h2>
-    <h2><%= link_to @startup.twitter.to_s, "http://twitter.com/#!/"+@startup.twitter.slice!(0) %></h2>
-    <h3><%= @startup.crunchbase %></h3>
-    <% @startup.tags.each do |tag| %>
-    <h3><%= tag.name %></h3>
-    <% end %>
-    <% if can? :create, Picture %>
-      </br ><%= link_to "Add new picture", new_startup_picture_path(@startup) %>
-    <% end %>
-    <% if can? :update, @startup %>
-      </br ></br ><%= link_to 'Edit this page', edit_startup_path(@startup) %>
-    <% end %>  
-
+<div class="row">
+  <div class="span12 startup_profile rounded-corners shadow">
+    <div class="row">
+      <div class="span12 su_title_bar top-rounded-corners">
+        <div class="su_logo_div">
+          <%= image_tag @startup.logo.url, :class => "su_logo" %>
+        </div>
+        <div class="su_description">
+          <%= @startup.description %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span12">
+        <div id="myCarousel" class="carousel">
+          <!-- Carousel items -->
+          <div class="carousel-inner">
+            <% for picture in @startup.pictures %>
+              <% if picture==@startup.pictures.first%>
+                <div class="active item"><%=image_tag @startup.pictures.first.url%></div>
+              <% else %>
+                <div class="item"><%= image_tag picture.url%></div>
+              <% end %>  
+            <% end %>
+          </div>
+          <!-- Carousel nav -->
+          <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span4 su_meta">
+        
+        <div class="su_meta_icon">
+          <i class="icon-home"></i>
+          <h2><%= link_to @startup.url, "http://"+@startup.url.to_s, :target => '_blank'%></h2>
+        </div>
+        <div class="su_meta_icon">
+          <i class="icon-twitter"></i>
+          <h2><%= link_to @startup.twitter.to_s, "http://twitter.com/#!/"+@startup.twitter, :target => '_blank' %></h2>
+        </div>
+        
+      </div>
+      <div class="span8 tags">
+        <div class="tags_outer">
+          <div class="su_meta_icon tags_inner">
+            <i class="icon-tags"></i>
+            <% @startup.tags.each do |tag| %>
+              <%= tag.name %><% if @startup.tags.last != tag %> + <% end %>
+            <% end %> 
+          </div> 
+        </div>
+        <div class="su_meta_icon">
+          <i class="icon-bar-chart"></i>
+          <h2><%= link_to "CrunchBase Profile", @startup.crunchbase, :target => '_blank' %></h2>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<div class="row discussions rounded-corners shadow">
-  <p>
-  <% @startup.discussions.each do |d| %>
-  <div class="row startup-discussion">
-    <div class="vote-discussion rounded span1">
-      
+<% if can? :manage, Startup %>
+ <div class="row">
+      <div class="span12 su_admin rounded-corners shadow">
+        <% if can? :create, Picture %>
+          </br ><i class="icon-camera"></i><%= link_to "Add new picture", new_startup_picture_path(@startup) %>
+        <% end %>
+        <% if can? :update, Startup %>
+          <i class="icon-edit"></i><%= link_to 'Edit this page', edit_startup_path(@startup) %>
+        <% end %> 
+      </div> 
     </div>
-    <div class="span1">
-      <div class="topic-icon rounded">
-        <%= image_tag d.topic.icon %>
-      </div>  
-    </div>
-    <div class="discussion span10">
-      <h3><%= link_to d.title, startup_discussion_path(@startup, d) %></h3>
-    </div>
-    <div class="discussion-meta span10 offset2">
-    Posted by <%= d.user.name %> (32)
-    <% if can? :update, d %>
-      <%= link_to 'Edit', edit_startup_discussion_path(@startup, d) %>
-    <% end %>
-    <% if can? :destroy, d %>
-      <%= link_to 'Delete', [@startup, d], confirm: 'Are you sure?', method: :delete %>
-    <% end %>
-    </div>
-  </div>          
-    <% end %>
-  </p>
+<% end %>
 
-  <h2><%= link_to 'New Discussion', new_startup_discussion_path(@startup) %></h2>
+<div class="row">
+  <div class="span12 add_discussion_box rounded-corners shadow">
+    <div class="add_discussion">
+      <i class="icon-plus-sign"></i><h2><%= link_to 'New Discussion', new_startup_discussion_path(@startup) %></h2>
+
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span12 discussions rounded-corners shadow">
+    <% @startup.discussions.each do |d| %>
+    <div class="row">
+      <div class="span12 startup-discussion">
+        <div class="row">
+          <div class="span1">
+            <div class="vote-discussion rounded">
+            </div>
+          </div>
+          <div class="span1">
+            <div class="topic-icon rounded">
+              <%= image_tag d.topic.icon %>
+            </div>  
+          </div>
+          <div class="span10">
+            <div class="discussion span10">
+              <h3><%= link_to d.title, startup_discussion_path(@startup, d) %></h3>
+            </div>
+            <div class="discussion-meta span10">
+            Posted by <%= d.user.name %>, <%= d.user.title %> (32)
+            <% if can? :update, d %>
+              <%= link_to 'Edit', edit_startup_discussion_path(@startup, d) %>
+            <% end %>
+            <% if can? :destroy, d %>
+              <%= link_to 'Delete', [@startup, d], confirm: 'Are you sure?', method: :delete %>
+            <% end %>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>          
+      <% end %>
+
+  </div>
 </div>
 
 

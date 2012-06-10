@@ -1,0 +1,60 @@
+<% if can? :manage, User %>
+<div class="row">
+	<div class="span12 rounded-corners shadow users-index">
+
+		<h1>All <%=User.count%> Users</h1>
+		<div class="row">
+			<div class="span12">
+			<table id="users">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Avatar</th>
+						<th>Email</th>
+						<th>Login Count</th>
+						<th>Last Sign In</th>
+						<th>Role</th>
+						<th>Created At</th>
+						<th>Last Edited</th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+			</div>
+		</div>
+			<tbody>
+				<div class="row">
+					<div class="span12">
+				<% @users.each do |user| %>
+				<tr>
+					<th><%= user.name %></th>
+					<th><%= image_tag user.avatar.url, :size => "45x45" %></th>
+					<th><%= user.email %></th>
+					<th><%= user.sign_in_count %></th>
+					<th><%if user.last_sign_in_at.blank? %>Never logged in<% else %><%= time_ago_in_words(user.last_sign_in_at.to_datetime)+' ago' %><% end %></th>
+					<% user.roles.each do |r| %>
+						<th><%= r.name.to_s %></th>
+					<% end %>
+					<th><%= user.created_at.to_s(:datetime).downcase %></th>
+					<th><%= user.updated_at.to_s(:datetime).downcase %></th>
+					<th><%= link_to "Show", user_path(user) %>
+					<th><%= link_to "Edit", edit_user_path(user) %></th>
+					<th><%= link_to "Delete", user, :method => :delete, :confirm => "Are you sure?" %></th>
+				</tr>
+				<% end %>
+					</div>
+			</tbody>
+				</div>
+
+
+		</table>
+
+		<p><%= link_to "New User", new_user_path %></p>
+
+	</div>
+</div>
+<% else %>
+	<h2> You are not cool enough to see this page.</h2>
+
+<% end %>

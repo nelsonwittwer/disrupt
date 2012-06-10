@@ -10,14 +10,12 @@ class Ability
       can :manage, Startup, Discussion, Comment, Picture      
     elsif user.role? :member
       can :read, :all
-      can :create, Comment
-      can :update, Comment do |comment|
-        comment.try(:user) == user || user.role?(:moderator)
+      can :create, [Discussion, Comment]
+      can [:update, :destroy], [Discussion, Comment], :user_id => user.id
+      can [:update, :destroy], User do |u|
+        u == user
       end
-      can :create, Discussion
-      can :update, Discussion do |discussion|
-        discussion.try(:user) == user || user.role?(:moderator)
-      end
+      
     else
       can :read, :all
     end

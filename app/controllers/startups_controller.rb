@@ -1,5 +1,7 @@
 class StartupsController < ApplicationController
-load_and_authorize_resource
+  skip_authorize_resource :only => :show
+  load_and_authorize_resource
+  
 
   # GET /startups
   # GET /startups.json
@@ -26,7 +28,7 @@ load_and_authorize_resource
   # GET /startups/new
   # GET /startups/new.json
   def new
-    @startup = Startup.new
+    #@startup = Startup.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,13 +38,13 @@ load_and_authorize_resource
 
   # GET /startups/1/edit
   def edit
-    @startup = Startup.find(params[:id])
+    #@startup = Startup.find(params[:id])
   end
 
   # POST /startups
   # POST /startups.json
   def create
-    @startup = Startup.new(params[:startup])
+    #@startup = Startup.new(params[:startup])
 
     respond_to do |format|
       if @startup.save
@@ -58,7 +60,7 @@ load_and_authorize_resource
   # PUT /startups/1
   # PUT /startups/1.json
   def update
-    @startup = Startup.find(params[:id])
+    #@startup = Startup.find(params[:id])
 
     respond_to do |format|
       if @startup.update_attributes(params[:startup])
@@ -74,8 +76,8 @@ load_and_authorize_resource
   # DELETE /startups/1
   # DELETE /startups/1.json
   def destroy
-    @startup = Startup.find(params[:id])
-    @startup.destroy
+    #@startup = Startup.find(params[:id])
+    #@startup.destroy
 
     respond_to do |format|
       format.html { redirect_to startups_url }

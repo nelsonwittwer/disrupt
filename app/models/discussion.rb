@@ -6,7 +6,7 @@ class Discussion < ActiveRecord::Base
   has_many :comments, :as => :imageable, :dependent => :destroy
   validates :title, :topic_id, :presence => true
   validates :title, :uniqueness => true
-
+  validates :user_id, :presence => true
 
 
 end

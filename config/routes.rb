@@ -14,11 +14,14 @@ Disrupt::Application.routes.draw do
       resources :comments 
     end
   end
-  
 
-  devise_for :users
+
+
+  devise_for :users, :path_prefix => 'd'
+  resources :users
+
   namespace :user do
-  	root :to => "users#welcome"
+  	root :to => "static_pages#home"
   end
 
   as :user do

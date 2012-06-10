@@ -18,6 +18,10 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :name %>
+  </div>
   <% if @current_method == "new" %>
     <div class="field">
       <%= f.label :password %><br />
@@ -28,13 +32,22 @@
       <%= f.password_field :password_confirmation %>
     </div>
   <% end %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.file_field :avatar %>
+  </div>
   <p>
-    <%= f.label :roles %><br />
-    <% for role in @user.roles %>
-      <%= check_box_tag "user[roles][]", role, @user.roles.include?(role) %>
-    <% end %>
-    <%= hidden_field_tag "user[roles][]", "" %>
-  </p>
+      <%= f.label :role %>
+      <% for role in Role.find(:all) %>
+      <div>
+        <%= radio_button_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+        <%= role.name %>
+      </div>
+      <% end %>
+    </p>
   <div class="actions">
     <%= f.submit %>
   </div>

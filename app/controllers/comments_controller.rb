@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   before_filter :get_startup
+  load_and_authorize_resource
+  skip_authorize_resource :only => :show
 
   def get_startup
     @startup = Startup.find(params[:startup_id])

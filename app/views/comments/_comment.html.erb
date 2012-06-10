@@ -1,10 +1,29 @@
-<h3><%= comment.text %></h3><p><%=comment.user.name %></p>
+<div class="row">
+	<div class="span12">
+		<div class="comment">
+			<%=image_tag comment.user.avatar.url, :class => "user_avatar" %>
+			<div class="comment_author">
+				<h3><%=comment.user.name %></h3><%= comment.user.title %>
+			</div>
+			<div class="comment_text">
+				<p><%= comment.text %></p>
+			</div>
+			<div class="comment_actions">
+				<a class="btn btn-mini" href=<%= new_startup_discussion_comment_path(@startup, @discussion, :parent_id =>comment)%>>
+					  reply
+				</a>
+				<% if can? :update, comment %>
+				    <a class="btn btn-mini" href=<%= edit_startup_discussion_comment_path(@startup, @discussion, comment)%>>
+					  edit
+					</a>
+				<% end %>
+				
+				<% if can? :destroy, comment %>
+				<%= link_to "delete", [@startup, @discussion, comment], confirm: 'Are you sure?', :class => "btn btn-mini", method: :delete%>
+				<% end %>
+			</div>
+		</div>
+	</div>
 
-	<%= link_to "reply", new_startup_discussion_comment_path(@startup, @discussion, :parent_id =>comment)%>
-	<% if can? :update, comment %>
-	    | <%= link_to "edit", edit_startup_discussion_comment_path(@startup, @discussion, comment)%>
-	<% end %>
 	
-	<% if can? :destroy, comment %>
-	<%= link_to "| delete", [@startup, @discussion, comment], confirm: 'Are you sure?', method: :delete%>
-	<% end %>
+</div>

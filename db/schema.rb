@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120526163733) do
+ActiveRecord::Schema.define(:version => 20120601033823) do
 
   create_table "comments", :force => true do |t|
-    t.string   "text"
+    t.text     "text"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.string   "ancestry"
@@ -134,6 +134,8 @@ ActiveRecord::Schema.define(:version => 20120526163733) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "name"
+    t.string   "title"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

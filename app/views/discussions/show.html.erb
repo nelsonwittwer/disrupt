@@ -1,9 +1,72 @@
 <% provide(:title, @discussion.title) %>
 <p id="notice"><%= notice %></p>
 
+<div class="row">
+	<div class="span12 show_discussion rounded-corners shadow">
+		<div class="row">
+	      <div class="span12 su_title_bar top-rounded-corners">
+	        <div class="su_logo_div">
+	          <%= link_to (image_tag @startup.logo.url, :class => "su_logo"), startup_path(@startup) %>
+	        </div>
+	        <div class="su_description">
+	          <%= @startup.description %>
+	        </div>
+	      </div>
+	    </div>
+		<div class="row">
+			<div class="span12">
+				<div class="discussion_title_box">
 
-<%= nested_comments @comments.arrange(:order => :created_at) %>
+					<div class="row">
+						<div class="span1">
+							<div class="topic-icon rounded">
+				              <%= image_tag @discussion.topic.icon %>
+				            </div>
+				        </div>
+			            <div class="span10"> 
+			            	<div class="row">
+			            		<div class="span10"> 
+									<h2 class="discussion_title"><%=@discussion.title %></h2>
+								</div>
+							</div>
+							<div class="row">
+								<div class="span10">
+									<div class="discussion_user">
+										<%= image_tag @discussion.user.avatar.url, :class => "user_avatar" %>
+										<div class="discussion_user_name"><h4> 
+											<%= @discussion.user.name %></h4> <%=@discussion.user.title %>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-<p><%= link_to 'Add a Comment', new_startup_discussion_comment_path(@startup, @discussion) %></p>
+		<div class="row">
+			<div class="span12">
+				<div class="discussion_icon">
+					  <div class="new_comment rounded-corners">
+				          <i class="icon-comments"></i>
+				          <%= link_to "comment",new_startup_discussion_comment_path(@startup, @discussion)%>
+				      </div>
+		          <i class="icon-twitter"></i>
+		          <i class="icon-facebook"></i> 
+  		          <i class="icon-google-plus"></i>
+  		          <i class="icon-linkedin"></i>
+	  		    </div>
+			</div>
+		</div>
 
-
+		<div class="row">
+			<div class="span12">
+				<div class="discussion_comment_parent rounded-corners">	
+					<%= nested_comments @comments.arrange(:order => :created_at) %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
