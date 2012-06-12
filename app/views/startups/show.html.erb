@@ -58,66 +58,69 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
-<% if can? :manage, Startup %>
- <div class="row">
-      <div class="span12 su_admin rounded-corners shadow">
+    <% if can? :manage, Startup %>
+    <div class="row">
+      <div class="span12">
+        <div class="su_admin dashed centered">
         <% if can? :create, Picture %>
           </br ><i class="icon-camera"></i><%= link_to "Add new picture", new_startup_picture_path(@startup) %>
         <% end %>
         <% if can? :update, Startup %>
           <i class="icon-edit"></i><%= link_to 'Edit this page', edit_startup_path(@startup) %>
         <% end %> 
-      </div> 
+        </div> 
+      <% end %>
+      </div>
     </div>
-<% end %>
-
-<div class="row">
-  <div class="span12 add_discussion_box rounded-corners shadow">
-    <div class="add_discussion">
-      <i class="icon-plus-sign"></i><h2><%= link_to 'New Discussion', new_startup_discussion_path(@startup) %></h2>
-
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="span12 discussions rounded-corners shadow">
-    <% @startup.discussions.each do |d| %>
+    
     <div class="row">
-      <div class="span12 startup-discussion">
-        <div class="row">
-          <div class="span1">
-            <div class="vote-discussion rounded">
-            </div>
-          </div>
-          <div class="span1">
-            <div class="topic-icon rounded">
-              <%= image_tag d.topic.icon %>
-            </div>  
-          </div>
-          <div class="span10">
-            <div class="discussion span10">
-              <h3><%= link_to d.title, startup_discussion_path(@startup, d) %></h3>
-            </div>
-            <div class="discussion-meta span10">
-            Posted by <%= d.user.name %>, <%= d.user.title %> (32)
-            <% if can? :update, d %>
-              <%= link_to 'Edit', edit_startup_discussion_path(@startup, d) %>
-            <% end %>
-            <% if can? :destroy, d %>
-              <%= link_to 'Delete', [@startup, d], confirm: 'Are you sure?', method: :delete %>
-            <% end %>
-            </div>
-          </div> 
+      <div class="span12 add_discussion_box dashed">
+        <div class="add_discussion">
+          <i class="icon-plus-sign"></i><h2><%= link_to 'New Discussion', new_startup_discussion_path(@startup) %></h2>
         </div>
       </div>
-    </div>          
-      <% end %>
+    </div>
+
+
+    <div class="row">
+      <div class="span12 discussions bottom-rounded-corners">
+        <% @startup.discussions.each do |d| %>
+        <div class="row">
+          <div class="span12 startup-discussion">
+            <div class="row">
+              <div class="span1">
+                <div class="topic-icon rounded">
+                  <%= image_tag d.topic.icon %>
+                </div>  
+              </div>
+              <div class="span11">
+                <div class="discussion span11">
+                  <h3><%= link_to d.title, startup_discussion_path(@startup, d) %></h3>
+                </div>
+                <div class="discussion-meta span11">
+                Posted by <%= d.user.name %>, <%= d.user.title %> (32)
+                <% if can? :update, d %>
+                  <%= link_to 'Edit', edit_startup_discussion_path(@startup, d) %>
+                <% end %>
+                <% if can? :destroy, d %>
+                  <%= link_to 'Delete', [@startup, d], confirm: 'Are you sure?', method: :delete %>
+                <% end %>
+                </div>
+              </div> 
+            </div>
+          </div>
+        </div>          
+          <% end %>
+
+      </div>
+    </div>
 
   </div>
 </div>
+
+
+
+
 
 
 
