@@ -5,10 +5,12 @@
                 <div class="span9 startup_index_picture">
                     <%= link_to (image_tag startup.pictures.first.url, :class => "rounded-left-side"), startup %>
                 </div>
-                <div class="span3 startup_index_meta">
+                <div class="span3">
+                    <div class="startup_index_meta">
+
                     <div class="startup_index_logo"><%= link_to (image_tag startup.logo.url), startup %></div>
                     <p class="su_index_descr"><%= startup.description %></p>
-                    <h3><%= startup.discussions.count %> Discussions</h3></br >
+                    <i class="icon-comments"></i><h3><%= startup.discussions.count %> <%=link_to "discussions", startup_path(startup)%></h3></br >
 
                     <% if can? :update, startup %>
                         <%= link_to 'Edit', edit_startup_path(startup) %>
@@ -16,6 +18,7 @@
                     <% if can? :destroy, startup %>    
                         <%= link_to 'Destroy', startup, confirm: 'Are you sure?', method: :delete %>
                     <% end %>
+                    </div>
                 </div>
              </div>       
         </div> 

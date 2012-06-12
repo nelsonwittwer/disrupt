@@ -215,6 +215,8 @@ footer {
 }
 .startup_index_logo{
   margin-top:10px;
+  max-width:150px;
+  max-height:50px;
 }
 
 .su_index_descr {
@@ -222,6 +224,20 @@ footer {
   margin-bottom: 20px;
 }
 
+.startup_index_meta{
+  width:180px;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  padding-bottom:20px;
+  i{
+    padding-right:7px;
+    font-size:20px;
+  }
+  h3{
+    display:inline;
+  }
+}
 
 /* startup profile */
 

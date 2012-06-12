@@ -5,4 +5,8 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
+  def home
+  	@startups = Startup.all
+  end	
+
 end
