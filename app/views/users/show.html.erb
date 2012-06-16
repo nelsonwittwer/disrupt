@@ -10,14 +10,14 @@
 		</div>
 		<div class="row">
 			<div class="span12 user-discussions">
-					<%= @user.discussions.each do |d| %>
+					<% @user.discussions.each do |d| %>
 				        <%= d.title %>
 					<% end %>	
 			</div>
 		</div>
 		<div class="row">
 			<div class="span12 user-comments">
-					<%= @user.comments.each do |c| %>
+					<% @user.comments.each do |c| %>
 				        <%= c.text %>
 					<% end %>	
 			</div>

@@ -14,6 +14,7 @@ gem 'carrierwave'
 gem 'bootstrap-sass', '2.0.0'
 gem 'ancestry'
 gem 'simple_form'
+gem 'carrierwave_direct'
 
 
 group :development, :test do
