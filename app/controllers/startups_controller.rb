@@ -76,8 +76,8 @@ class StartupsController < ApplicationController
   # DELETE /startups/1
   # DELETE /startups/1.json
   def destroy
-    #@startup = Startup.find(params[:id])
-    #@startup.destroy
+    @startup = Startup.find(params[:id])
+    @startup.destroy
 
     respond_to do |format|
       format.html { redirect_to startups_url }

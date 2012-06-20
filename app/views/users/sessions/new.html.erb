@@ -1,15 +1,30 @@
-<h2>Sign in</h2>
+ <div class="row">
+    <div class="span12 rounded-corners shadow inputs registration">
+		<div class="row">
+	        <div class="span6">
+				<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
+				<h1>Sign in</h1>
 
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div class="inputs">
-    <%= f.input :email, :required => false, :autofocus => true %>
-    <%= f.input :password, :required => false %>
-    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
-  </div>
+				<div class="inputs">
+					<%= f.input :email, :required => false, :autofocus => true %>
+					<%= f.input :password, :required => false %>
+					<%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+				</div>
+				<div class="signup_actions signin">
+					<%= f.button :submit, "Sign in", :class =>'btn-warning btn-large signin_btn'  %></br >
+					<%= render "links" %>
+				</div>
+			</div>
+	        <div class="span6 .hidden-phone ">
+	          <%= image_tag "login.png", :class => "rounded-corners shadow signup_pic" %>
+	        </div>
+	    </div>
 
-  <div class="actions">
-    <%= f.button :submit, "Sign in" %>
-  </div>
-<% end %>
+		<div class="row">
+	        
+		</div>
 
-<%= render "links" %>
+		<% end %>
+
+	</div>
+</div>

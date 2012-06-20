@@ -1,34 +1,36 @@
-<h2>Sign up</h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+
+<%= simple_form_for(resource, :as => resource_name, :html => { :multipart => true }, :html => { :class => 'form-horizontal' }, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
   <div class="row">
-    <div class="inputs registration span12 rounded-corners shadow">
-      <%= f.input :email, :required => true, :autofocus => true %>
-      <%= f.input :password, :required => true %>
-      <%= f.input :password_confirmation, :required => true %>
-      <%= f.input :name, :required => true %>
-      <%= f.input :title, :required => true %>
-      <%= f.input :avatar, :required => true %>
-
-
-    </div>
-
-    <p>
-      <%= f.label :role %>
-      <% for role in Role.find(:all) %>
-      <div>
-        <%= radio_button_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-        <%= role.name %>
+    <div class="span12 rounded-corners shadow inputs registration">
+      <div class="row">
+        <div class="span6">
+          <h1>Join the Club</h1>
+            <%= f.input :email, :required => true, :autofocus => true, :input_html => { :class => "span4" } %>
+            <%= f.input :password, :required => true, :input_html => { :class => "span4" } %>
+            <%= f.input :password_confirmation, :required => true, :input_html => { :class => "span4" } %>
+            <%= f.input :name, :required => true, :input_html => { :class => "span4" } %>
+            <%= f.input :title, :required => true, :input_html => { :class => "span4" } %>
+            <%= f.input :url, :as => :file, :label => "Upload Profile Picture", :required => true %>
+        </div>
+        <div class="span6 .hidden-phone ">
+          <%= image_tag "signup.png", :class => "rounded-corners shadow signup_pic" %>
+        </div>
       </div>
-      <% end %>
-    </p>
 
-    <div class="actions">
-      <%= f.button :submit, "Sign up" %>
-    </div>
-  <% end %>
 
-  <%= render "links" %>
+
+        
+      <div class="row">
+        <div class="signup_actions span3">
+          <%= f.button :submit, "Sign up", :class => 'btn-warning btn-large' %></br >
+          <%= render "links" %>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
 
 </div>

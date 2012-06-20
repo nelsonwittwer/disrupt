@@ -24,10 +24,16 @@ Disrupt::Application.routes.draw do
   	root :to => "startups#index"
   end
 
-  as :user do
-  	get "/signin" => "devise/sessions#new"
-  	get "/signout" => "devise/sessions#destroy"
-  	get "/signup" => "devise/registrations#new"
+  #as :user do
+  #	get "/signin" => "devise/sessions#new"
+  #	get "/signout" => "devise/sessions#destroy"
+  #	get "/signup" => "devise/registrations#new"
+  #end
+
+  devise_scope :user do
+    get "/signin" => "devise/sessions#new"
+    get "/signup" => "devise/registrations#new"
+    get "/signout" => "devise/sessions#destroy"
   end
   
 

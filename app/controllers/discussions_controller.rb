@@ -34,7 +34,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions/new
   # GET /discussions/new.json
   def new
-    #@discussion = @startup.discussions.new(:user_id => current_user.id)
+    @discussion = @startup.discussions.new(:user_id => current_user.id)
     @topics = Topic.all
 
     respond_to do |format|
@@ -45,14 +45,14 @@ class DiscussionsController < ApplicationController
 
   # GET /discussions/1/edit
   def edit
-    #@discussion = @startup.discussions.find(params[:id])
+    @discussion = @startup.discussions.find(params[:id])
 
   end
 
   # POST /discussions
   # POST /discussions.json
   def create
-    #@discussion = @startup.discussions.new(params[:discussion])
+    @discussion = @startup.discussions.new(params[:discussion])
 
     respond_to do |format|
       if @discussion.save
@@ -68,7 +68,7 @@ class DiscussionsController < ApplicationController
   # PUT /discussions/1
   # PUT /discussions/1.json
   def update
-    #@discussion = @startup.discussions.find(params[:id])
+    @discussion = @startup.discussions.find(params[:id])
 
     respond_to do |format|
       if @discussion.update_attributes(params[:discussion])
@@ -84,8 +84,8 @@ class DiscussionsController < ApplicationController
   # DELETE /discussions/1
   # DELETE /discussions/1.json
   def destroy
-    #@discussion = @startup.discussions.find(params[:id])
-    #@discussion.destroy
+    @discussion = @startup.discussions.find(params[:id])
+    @discussion.destroy
 
     respond_to do |format|
       format.html { redirect_to startup_path(@startup) }
