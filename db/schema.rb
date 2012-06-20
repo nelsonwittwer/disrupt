@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120601033823) do
+ActiveRecord::Schema.define(:version => 20120617020919) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
@@ -59,12 +59,15 @@ ActiveRecord::Schema.define(:version => 20120601033823) do
 
   create_table "pictures", :force => true do |t|
     t.string   "url"
-    t.integer  "startup_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.string   "pic_file_name"
+    t.string   "pic_content_type"
+    t.integer  "pic_file_size"
+    t.datetime "pic_updated_at"
   end
-
-  add_index "pictures", ["startup_id"], :name => "index_pictures_on_startup_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

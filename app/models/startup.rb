@@ -4,7 +4,7 @@ class Startup < ActiveRecord::Base
   validates :name, :url, :uniqueness => true
   
   
-  mount_uploader :logo, LogoUploader
+  has_one :logo, :class_name => "Picture", :as => :imageable, :dependent => :destroy
   has_many :discussions, :dependent => :destroy, :as => :imageable
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings

@@ -10,11 +10,11 @@ gem 'thin'
 gem 'devise'
 gem 'cancan'
 gem "rmagick"
-gem 'carrierwave'
+gem "paperclip", "~> 3.0"
 gem 'bootstrap-sass', '2.0.0'
+gem 'aws-sdk', '~> 1.3.4'
 gem 'ancestry'
 gem 'simple_form'
-gem 'carrierwave_direct'
 
 
 group :development, :test do

@@ -1,7 +1,6 @@
 class Picture < ActiveRecord::Base
-  attr_accessible :url, :picture, :remote_picture_url
-  belongs_to :startup
+  belongs_to :imageable, :polymorphic => true
+  attr_accessible :url 
+  has_attached_file :url
 
-
-  mount_uploader :url, PictureUploader
 end

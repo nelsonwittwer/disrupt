@@ -612,7 +612,30 @@ footer {
 /* registration */
 .registration{
   background-color:white;
+  padding-bottom:20px;
+  h1{
+    margin-left:160px;
+    margin-top:20px;
+
+  }
 }
+
+.signup_actions{
+  margin-left:180px;
+  .btn-large{
+    margin-bottom:20px;
+    padding-left:30px;
+    padding-right:30px;
+  }
+}
+
+.signup_pic{
+  margin-top:70px;
+  margin-left:25px;
+  max-width:70%;
+}
+
+
 
 /* users */
 .users-index{
