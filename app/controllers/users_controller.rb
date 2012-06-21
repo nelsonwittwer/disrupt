@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     #@user = User.new
-
+    @user.picture.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @user }
@@ -40,6 +40,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     #@user = User.find(params[:id])
+    @user.picture.build
   end
 
   # POST /users
