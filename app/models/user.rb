@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids, :name, :title, :picture
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids, :name, :title, :pic_file_name
   has_one :picture, :dependent => :destroy
   accepts_nested_attributes_for :picture, :allow_destroy => true
   has_many :comments, :dependent => :destroy
