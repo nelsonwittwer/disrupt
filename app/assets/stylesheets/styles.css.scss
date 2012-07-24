@@ -153,7 +153,7 @@ a{
 }
 a:hover{
     color:$base;
-    
+    text-decoration: none;
   }
 
 
@@ -188,26 +188,49 @@ padding-right: 4px;
 /* footer */
 
 footer {
+  background-image:url('footer-background.png');
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $base;
+  border-top: 2px solid $base;
+  border-bottom: 2px solid $base;
+  min-height: 222px;
   color: $dark;
   a {
     color: $dgray;
     &:hover { 
       color: $dark;
     }
+  }
+  .footer_logo{
+    margin-left:40px;
+    #logo{
+      color:white;
+    }
+  }
+  nav{
+    margin-left:40px;
+    text-transform: lowercase;
+    font-size: 1.3em;
+    line-height: 1.9em;
+    li{
+      line-height: 21px;
+    }
   }  
   small { 
     float: left; 
   }
   ul {
-    float: right;
     list-style: none;
     li {
-      float: left;
       margin-left: 10px;
     }
+  }
+  img{
+    float:right;
+  }
+  .footer-skyline{
+    position: absolute;
+    right:55px;
   }
 }
 

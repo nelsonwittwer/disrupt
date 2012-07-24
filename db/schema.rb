@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120621014759) do
+ActiveRecord::Schema.define(:version => 20120720225216) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
@@ -40,10 +40,14 @@ ActiveRecord::Schema.define(:version => 20120621014759) do
   add_index "discussions", ["user_id"], :name => "index_discussions_on_user_id"
 
   create_table "images", :force => true do |t|
-    t.string   "url"
-    t.boolean  "logo"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "image_name_file_name"
+    t.string   "image_name_content_type"
+    t.integer  "image_name_file_size"
+    t.datetime "image_name_updated_at"
   end
 
   create_table "markets", :force => true do |t|
@@ -55,18 +59,6 @@ ActiveRecord::Schema.define(:version => 20120621014759) do
   create_table "markets_startups", :id => false, :force => true do |t|
     t.integer "market_id"
     t.integer "startup_id"
-  end
-
-  create_table "pictures", :force => true do |t|
-    t.string   "url"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.integer  "imageable_id"
-    t.string   "imageable_type"
-    t.string   "pic_file_name"
-    t.string   "pic_content_type"
-    t.integer  "pic_file_size"
-    t.datetime "pic_updated_at"
   end
 
   create_table "roles", :force => true do |t|

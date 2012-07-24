@@ -1,4 +1,5 @@
-<%= form_for :user, @user, :url => user_path, :html => { :multipart => true } do |f| %>  <% if @user.errors.any? %>
+<%= simple_form_for @user do |f| %>  
+  <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
@@ -34,9 +35,6 @@
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
-  </div>
-  <div class="field">
-      <%= form.file_field :url %>
   </div>
   <p>
       <%= f.label :role %>

@@ -7,6 +7,9 @@ class StaticPagesController < ApplicationController
 
   def home
   	@startups = Startup.all
+  end
+
+  def suggest
   end	
 
 end

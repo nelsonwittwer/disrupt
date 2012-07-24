@@ -11,11 +11,8 @@ class Ability
     elsif user.role? :member
       can :read, :all
       can :create, [Discussion, Comment]
-      can [:update, :destroy], [Discussion, Comment], :user_id => user.id
-      can [:update, :destroy], User do |u|
-        u == user
-      end
-      
+      can [:update, :destroy], [Discussion, Comment], :active => true, :user_id => user.id
+      can [:manage], User, :active => true, :user_id => user.id
     else
       can :read, :all
     end
