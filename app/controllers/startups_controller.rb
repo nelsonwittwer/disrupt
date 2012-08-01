@@ -29,7 +29,7 @@ class StartupsController < ApplicationController
   # GET /startups/new.json
   def new
     #@startup = Startup.new
-    @startup.screenshots.build
+    @startup.screenshots.build 
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,7 +46,6 @@ class StartupsController < ApplicationController
   # POST /startups.json
   def create
     #@startup = Startup.new(params[:startup])
-
     respond_to do |format|
       if @startup.save
         format.html { redirect_to @startup, notice: 'Startup was successfully created.' }

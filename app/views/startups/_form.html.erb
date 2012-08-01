@@ -4,9 +4,7 @@
       <h2><%= pluralize(@startup.errors.count, "error") %> prohibited this startup from being saved:</h2>
 
       <ul>
-      <% @topic.edicas
-      nocqe
-      rrors.full_messages.each do |msg| %>
+      <% @topic.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -37,8 +35,14 @@
     <%= f.text_area :description %>
   </div>
 
-  <%= f.simple_fields_for :screenshots do |builder| %>
-    <%= builder.file_field :screenshot %>
+  <%= f.simple_fields_for :screenshots do |s| %>
+    <%= s.label :screenshot %><br />
+    <%= s.file_field :image_name %>
+  <% end %>
+
+  <%= f.simple_fields_for :logo do |l| %>
+    <%= l.label :logo %><br />
+    <%= l.file_field :image_name %>
   <% end %>
 
   
@@ -50,3 +54,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+<% binding.pry %>

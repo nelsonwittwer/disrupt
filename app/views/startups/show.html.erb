@@ -4,7 +4,7 @@
     <div class="row">
       <div class="span12 su_title_bar top-rounded-corners">
         <div class="su_logo_div">
-          <%= image_tag @startup.logo.url, :class => "su_logo" %>
+           <%=image_tag @startup.logo.image_name.url(:logo) %>
         </div>
         <div class="su_description">
           <%= @startup.description %>
@@ -16,9 +16,9 @@
         <div id="myCarousel" class="carousel">
           <!-- Carousel items -->
           <div class="carousel-inner">
-            <% for picture in @startup.pictures %>
-              <% if picture==@startup.pictures.first%>
-                <div class="active item"><%=image_tag @startup.pictures.first.url%></div>
+            <% for picture in @startup.screenshots %>
+              <% if picture==@startup.screenshots.first%>
+                <div class="active item"><%=image_tag @startup.screenshots.first.image_name.url(:screenshot) %></div>
               <% else %>
                 <div class="item"><%= image_tag picture.url%></div>
               <% end %>  
@@ -62,7 +62,7 @@
     <div class="row">
       <div class="span12">
         <div class="su_admin dashed centered">
-        <% if can? :create, Picture %>
+        <% if can? :create, Image %>
           </br ><i class="icon-camera"></i><%= link_to "Add new picture", new_startup_picture_path(@startup) %>
         <% end %>
         <% if can? :update, Startup %>

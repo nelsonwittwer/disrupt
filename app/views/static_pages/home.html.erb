@@ -1,24 +1,26 @@
-<div class="row">
-	<div class="span12 landing_hero rounded-corners shadow">
-		<div class="landing_hero_description rounded-corners">
-			<h1>discuss today's most disruptive companies.</h1>
-		</div>
-		<div class="landing_signup_button">
-			<%= link_to "sign up!", signup_path, :class => "btn btn-large btn-warning" %>
-			<h2>always free.</h2>
-		</div>
-		<div class="disruptage">
-			<h1>disruptage.</h1>
+<div class ="shadow">
+	<div class="row top-rounded-corners">
+		<div class="landing_hero hidden-phone">
+			<div class="span2 disruptage">
+				<h1>disruptage.</h1>
+			</div>
+			<div class="span4 landing_hero_description">
+				<h1>discuss today's most disruptive companies.</h1>
+				<div class="landing_signup_button">
+					<%= link_to "sign up!", signup_path, :class => "btn btn-large btn-warning" %>
+					<h2>always free.</h2>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
 
-<div class="row">
-	<div class="span12 landing_hero_info rounded-corners shadow">
-		<div class="row">
-			<div class="span5">
-				<h2>we bring the MBA case study experience online. for free.</h2>
-				<h2>develop the network and the mind of an MBA withouth paying a dime. </h2>
+	<div class="row">
+		<div class="span12 landing_hero_info">
+			<div class="row">
+				<div class="span5">
+					<h2>we bring the MBA case study experience online. for free.</h2>
+					<h2>develop the network and the mind of an MBA withouth paying a dime. </h2>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -26,21 +28,3 @@
 
 
 
-<div class="row">
-	<div id="myCarousel" class="carousel span6">
-	          <!-- Carousel items -->
-	          <div class="carousel-inner">
-	            <% for s in Startup.all %>
-	              <% if s==Startup.all.first%>
-	                <div class="active item"><%=image_tag s.pictures.first.url%></div>
-	              <% else %>
-	                <div class="item"><%= image_tag s.pictures.first.url%></div>
-	              <% end %>  
-	            <% end %>
-	          </div>
-	          <!-- Carousel nav -->
-	          <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-	          <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-	        </div>
-	</div>
-</div>
