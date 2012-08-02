@@ -40,8 +40,8 @@
     <%= s.file_field :image_name %>
   <% end %>
 
-  <%= f.simple_fields_for :logo do |l| %>
-    <%= l.label :logo %><br />
+  <%= f.simple_fields_for :logos do |l| %>
+    <%= l.label :logos %><br />
     <%= l.file_field :image_name %>
   <% end %>
 
@@ -54,4 +54,3 @@
     <%= f.submit %>
   </div>
 <% end %>
-<% binding.pry %>

@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: startups
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  url         :string(255)
+#  twitter     :string(255)
+#  crunchbase  :string(255)
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Startup do

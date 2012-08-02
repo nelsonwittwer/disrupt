@@ -31,6 +31,8 @@ GEM
     addressable (2.2.7)
     ancestry (1.3.0)
       activerecord (>= 2.3.14)
+    annotate (2.5.0)
+      rake
     arel (3.0.2)
     aws-sdk (1.3.9)
       httparty (~> 0.7)
@@ -211,6 +213,7 @@ PLATFORMS
 
 DEPENDENCIES
   ancestry
+  annotate (>= 2.5.0)
   aws-sdk (~> 1.3.4)
   bootstrap-sass (~> 2.0.4.0)
   cancan

@@ -25,6 +25,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'pry'
   gem 'pry-rails'
+  gem 'annotate', ">=2.5.0"
 end
 
 group :test do

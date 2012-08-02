@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: discussions
+#
+#  id             :integer          not null, primary key
+#  title          :string(255)
+#  imageable_id   :integer
+#  imageable_type :string(255)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  topic_id       :integer
+#  user_id        :integer
+#
+
 class Discussion < ActiveRecord::Base
   attr_accessible :title, :topic_id, :user_id
   belongs_to :imageable, :polymorphic => true
