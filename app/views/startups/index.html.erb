@@ -8,7 +8,7 @@
                 <div class="span3">
                     <div class="startup_index_meta">
 
-                    <div class="startup_index_logo"><%= link_to (image_tag startup.logo.image_name.url), startup %></div>
+                    <div class="startup_index_logo"><%= link_to (image_tag startup.logos.first.image_name.url), startup %></div>
                     <p class="su_index_descr"><%= startup.description %></p>
                     <i class="icon-comments"></i><h3><%= startup.discussions.count %> <%=link_to "discussions", startup_path(startup)%></h3></br >
 
