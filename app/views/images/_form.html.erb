@@ -1,0 +1,11 @@
+<%= simple_form_for(@image) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= builder.file_field :image_name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
