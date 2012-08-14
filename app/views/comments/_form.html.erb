@@ -1,10 +1,18 @@
 
 <%= simple_form_for [@startup, @discussion, @comment] do |f| %>
-  <%= f.input :text %>
+<div class="row">
+	<div class="span11 offset1">
+		<h2><%=@discussion.title%></h2>
+		<%= f.input :text,:label => 'Add a comment' %>
+	</div>
+</div>
+
   <%= f.hidden_field :user_id %>
   <%= f.hidden_field :parent_id %>
 
-  <div class="actions">
+<div class="row">
+  <div class="span3 offset1 actions">
     <br /><%= f.submit %>
   </div>
+</div>
 <% end %>

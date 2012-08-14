@@ -35,6 +35,7 @@ group :test do
   gem 'database_cleaner', '0.7.0'
   gem 'guard-spork', '0.3.2'  
   gem 'spork', '0.9.0'
+  gem 'rspec-rails'
   # gem 'rb-fsevent', '0.4.3.1', require: false
   # gem 'growl', '1.0.3'
 end

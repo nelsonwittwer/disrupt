@@ -687,10 +687,21 @@ footer {
 
 .new_discussion_form{
   background-color:white;
+  h2{
+    font-size:1.8em;
+    padding-top:20px;
+  }
 }
 
 #discussion_title{
   width:75%;
   height:55px;
+}
+
+/* new discussion */
+
+#comment_text{
+  width:75%;
+  height:95px;
 }
 

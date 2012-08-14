@@ -1,7 +1,12 @@
 
 <% provide(:title, 'Add a comment') %>
+<div class="row">
+	<div class="span12 new_discussion_form rounded-corners shadow">
+	<!-- 	
 <%= render @comment.parent if @comment.parent %>
-
+ -->
 <%= render "form" %>
 
-<p><%= link_to "Back to Discussion", startup_discussions_path %></p>
+<p class="offset1"><%= link_to "Back to Discussion", startup_discussions_path %></p>
+	</div>
+</div>
