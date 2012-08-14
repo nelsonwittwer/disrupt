@@ -245,9 +245,6 @@ footer {
   background-color:white;
 }
 
-.startup_index_row_2{
-  margin-bottom:-5px;
-}
 
 .startup_index_picture{
   margin-left:0px;
@@ -275,7 +272,7 @@ footer {
 }
 
 .startup_index_meta{
-  width:180px;
+  width:75%;
   display:block;
   margin-left:auto;
   margin-right:auto;
@@ -308,8 +305,13 @@ footer {
   }
   
   .su_logo_div{
-    width: 180px;
     float: left;
+    img{
+      max-height: 57%;
+      padding-top: 10%;
+      padding-left: 7%;
+      padding-right: 7%;
+    }
   }
   .su_logo{
   padding-left:20px;
@@ -398,8 +400,6 @@ footer {
 .startup-discussion{
   padding-bottom:15px;
   padding-top:15px;
-  
-   
   h3{
     font-weight:normal;
     padding-bottom:5px;
@@ -410,13 +410,14 @@ footer {
   margin-top:20px;
 }
 
-
 .topic-icon{
     
   background-color: $lgray;
-  margin-left:12px;
   height: 50px;
   width:50px;
+  margin-left: 27px;
+  margin-top: -7px;
+  float:right;
 
   img{
     max-width:35px;

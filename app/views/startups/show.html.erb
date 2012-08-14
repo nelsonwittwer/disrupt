@@ -63,21 +63,21 @@
 
 
     <div class="row">
-      <div class="span12 discussions bottom-rounded-corners">
+      <div class="span12 discussions">
         <% @startup.discussions.each do |d| %>
         <div class="row">
           <div class="span12 startup-discussion">
             <div class="row">
-              <div class="span1">
+              <div class="span2">
                 <div class="topic-icon rounded">
                   <%= image_tag d.topic.topic_icon.url %>
-                </div>  
-              </div>
-              <div class="span11">
-                <div class="discussion span11">
-                  <h3><%= link_to d.title, startup_discussion_path(@startup, d) %></h3>
                 </div>
-                <div class="discussion-meta span11">
+              </div> 
+              <div class="discussion span10">
+                <h3><%= link_to d.title, startup_discussion_path(@startup, d) %></h3>
+              </div>
+              <div class="row">
+                <div class="discussion-meta span10">
                 Posted by <%= link_to d.user.name, d.user %>, <%= d.user.title %> (32)
                 <% if can? :update, d %>
                   <%= link_to 'Edit', edit_startup_discussion_path(@startup, d) %>
@@ -86,12 +86,11 @@
                   <%= link_to 'Delete', [@startup, d], confirm: 'Are you sure?', method: :delete %>
                 <% end %>
                 </div>
-              </div> 
+              </div>
             </div>
           </div>
         </div>          
           <% end %>
-
       </div>
     </div>
 

@@ -1,30 +1,54 @@
 <% @startups.each do |startup| %>
-    <div class="row startup_index_row shadow rounded-corners">
+<div class="startup_index_row shadow rounded-corners hidden-phone">
+    <div class="row">
         <div class="span12">
-            <div class="row startup_index_row_2">
-                <div class="span9 startup_index_picture">
-                    <%= link_to (image_tag startup.screenshot.url, :class => "rounded-left-side"), startup %>
-                </div>
-                <div class="span3">
-                    <div class="startup_index_meta">
-
+            <div class="span9 startup_index_picture">
+                <%= link_to (image_tag startup.screenshot.url, :class => "rounded-left-side"), startup %>
+            </div>
+            <div class="span3">
+                <div class="startup_index_meta">
                     <div class="startup_index_logo">
                         <%=image_tag startup.startup_logo.url%>
                     </div>
                     <p class="su_index_descr"><%= startup.description %></p>
                     <i class="icon-comments"></i><h3><%= startup.discussions.count %> <%=link_to "discussions", startup_path(startup)%></h3></br >
-
                     <% if can? :update, startup %>
                         <%= link_to 'Edit', edit_startup_path(startup) %>
                     <% end %>
                     <% if can? :destroy, startup %>    
                         <%= link_to 'Destroy', startup, confirm: 'Are you sure?', method: :delete %>
                     <% end %>
-                    </div>
                 </div>
-             </div>       
+            </div>
         </div> 
     </div> 
+</div>
+
+<div class="startup_index_row shadow rounded-corners visible-phone">
+    <div class="row">
+        <div class="span12">
+            <div class="span3">
+                <div class="startup_index_meta">
+                    <div class="startup_index_logo">
+                        <%=image_tag startup.startup_logo.url%>
+                    </div>
+                    <p class="su_index_descr"><%= startup.description %></p>
+                    <i class="icon-comments"></i><h3><%= link_to startup.discussions.count, startup_path(startup) %> <%=link_to "discussions", startup_path(startup)%></h3></br >
+                    <% if can? :update, startup %>
+                        <%= link_to 'Edit', edit_startup_path(startup) %>
+                    <% end %>
+                    <% if can? :destroy, startup %>    
+                        <%= link_to 'Destroy', startup, confirm: 'Are you sure?', method: :delete %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="span9 startup_index_picture">
+                <%= link_to (image_tag startup.screenshot.url, :class => "rounded-corners"), startup %>
+            </div>
+        </div> 
+    </div> 
+</div>
+
 <% end %>   
 
 
