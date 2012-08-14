@@ -36,15 +36,7 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-  <p>
-      <%= f.label :role %>
-      <% for role in Role.find(:all) %>
-      <div>
-        <%= radio_button_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-        <%= role.name %>
-      </div>
-      <% end %>
-    </p>
+
   <div class="actions">
     <%= f.submit %>
   </div>

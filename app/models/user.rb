@@ -21,7 +21,7 @@
 #
 
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :roles
+  belongs_to :role
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -34,9 +34,7 @@ class User < ActiveRecord::Base
 
   
   
-  def role?(role)
-    roles.map(&:name).include? role.to_s
-  end
+ 
 
   
 end
