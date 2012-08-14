@@ -1,3 +1,5 @@
+@import "styles";
+
 .landing_hero{
   background-image:url('header-skyline.png');
   background-color:white;
@@ -55,6 +57,22 @@
 		padding-top:11%;
 		font-size:2.1em;
 	}
+	.landing_signup_button{
+		margin-top:-10px;
+	}
+	.btn.btn-large.btn-warning{
+		padding:10px 25px 10px 25px;
+		font-size:15px;
+	}
+	h2{
+		font-size:1.3em;
+	}
+	.landing_hero_description_mobile h1{
+		color:$base;
+		text-align:center;
+		margin-left:auto;
+		margin-right:auto;
+	}
 }
 
 .tablet_header{
@@ -77,86 +95,34 @@
 	}
 }
 
-
-/* Startup Slider*/
-* {
-	margin: 0; 
-	padding: 0;
-}
-body {
-	font-family: arial, verdana, tahoma;
+.spotlight{
+	margin-top:14%;
 }
 
-/*Time to apply widths for accordian to work
-Width of image = 640px
-total images = 5
-so width of hovered image = 640px
-width of un-hovered image = 40px - you can set this to anything
-so total container width = 640 + 40*4 = 800px;
-default width = 800/5 = 160px;
-*/
-
-.accordian {
-	width: 805px; height: 320px;
-	overflow: hidden;
+.home_about_1{
+	background-image:url('orange_pin.png');
+	height:250px;
+	.row{
+		padding-top:5%;
+	}
 	
-	/*Time for some styling*/
-	margin: 100px auto;
-	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
-	-webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
-	-moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+	.group_icon{
+		padding-top:57px;
+	}
+	.icon-group {
+		font-size:100px;
+		margin-top:30px;
+	}
+	.comment_icon{
+		font-size:175px;
+	}
+	h2{
+		color:white;
+	}
+	#learn_a_ton{
+		margin-top:-16px;
+	}
 }
 
-/*A small hack to prevent flickering on some browsers*/
-.accordian ul {
-	width: 2000px;
-	/*This will give ample space to the last item to move
-	instead of falling down/flickering during hovers.*/
-}
-
-.accordian li {
-	position: relative;
-	display: block;
-	width: 160px;
-	float: left;
-	
-	border-left: 1px solid #888;
-	
-	box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
-	-webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
-	-moz-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
-	
-	/*Transitions to give animation effect*/
-	transition: all 0.5s;
-	-webkit-transition: all 0.5s;
-	-moz-transition: all 0.5s;
-	/*If you hover on the images now you should be able to 
-	see the basic accordian*/
-}
-
-/*Reduce with of un-hovered elements*/
-.accordian ul:hover li {width: 40px;}
-/*Lets apply hover effects now*/
-/*The LI hover style should override the UL hover style*/
-.accordian ul li:hover {width: 640px;}
 
 
-.accordian li img {
-	display: block;
-}
-
-/*Image title styles*/
-.image_title {
-	background: rgba(0, 0, 0, 0.5);
-	position: absolute;
-	left: 0; bottom: 0;	
-width: 640px;	
-
-}
-.image_title a {
-	display: block;
-	color: #fff;
-	text-decoration: none;
-	padding: 20px;
-	font-size: 16px;
-}

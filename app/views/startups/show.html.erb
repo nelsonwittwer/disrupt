@@ -13,15 +13,16 @@
     </div>
     <div class="row">
       <div class="span12">
+
+        logos: <%= @startup.logos.map(&:image_name).join(", ") %>
+        <br/>
+        screenshots: <%= @startup.screenshots.map(&:image_name).join(", ") %>
+
         <div id="myCarousel" class="carousel">
           <!-- Carousel items -->
           <div class="carousel-inner">
-            <% for picture in @startup.screenshots %>
-              <% if picture==@startup.screenshots.first%>
-                <div class="active item"><%=image_tag @startup.screenshots.first.image_name.url(:screenshot) %></div>
-              <% else %>
-                <div class="item"><%= image_tag picture.image_name.url%></div>
-              <% end %>  
+            <% @startup.screenshots.each do |picture| %>
+              <div class="#{'active' if picture == @startup.screenshots.first} item"><%=image_tag @startup.screenshots.first.image_name.url(:screenshot)%></div>
             <% end %>
           </div>
           <!-- Carousel nav -->
