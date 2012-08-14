@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
-    @user.picture.build
+    @user.role_id=3
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @user }
@@ -47,7 +47,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     #@user = User.new(params[:user])
-    @user.role_id=3
 
     respond_to do |format|
       if @user.save
