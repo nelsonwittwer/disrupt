@@ -15,23 +15,24 @@
 require 'spec_helper'
 
 describe Startup do
+    let(:startup){FactoryGirl.create(:startup)}
+        subject {startup}
 
-    subject {page}
+    it { should respond_to(:crunchbase) }
+    it { should respond_to(:description) }
+    it { should respond_to(:name) }
+    it { should respond_to(:twitter) }
+    it { should respond_to(:url) }
+    it {should be_valid}
     
-    describe "profile page" do
-    	let(:startup){FactoryGirl.create(:startup)}
-        
-        before { visit startup_path(startup) }
+    describe "discussions" do
+        let(:startup){FactoryGirl.create(:startup)}
 
-    	it { should respond_to(:crunchbase) }
-        it { should respond_to(:description) }
-        it { should respond_to(:name) }
-        it { should respond_to(:twitter) }
-        it { should respond_to(:url) }
-        it { should respond_to(:logo) }
-
-        it {should be_valid}
-
+        d = startup.discussions.new
+        d.title="The world is a vampire"
+        d.save
+        d.startup should eq(startup)
+        startup.discussions.first should eq(discussions)
     end
 
 end

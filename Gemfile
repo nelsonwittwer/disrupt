@@ -30,12 +30,13 @@ group :development, :test do
 end
 
 group :test do
+  gem 'faker'
+  gem 'launchy'
   gem 'capybara', '1.1.2'
   gem 'factory_girl_rails'
   gem 'database_cleaner', '0.7.0'
   gem 'guard-spork', '0.3.2'  
   gem 'spork', '0.9.0'
-  gem 'rspec-rails'
   # gem 'rb-fsevent', '0.4.3.1', require: false
   # gem 'growl', '1.0.3'
 end
