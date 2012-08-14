@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'pg'
 gem 'chosen-rails'
 gem 'font-awesome-sass-rails'
+gem 'heroku'
 
 
 
@@ -31,7 +32,7 @@ end
 
 group :test do
   gem 'faker'
-  gem 'launchy'
+  gem 'launchy  '
   gem 'capybara', '1.1.2'
   gem 'factory_girl_rails'
   gem 'database_cleaner', '0.7.0'
