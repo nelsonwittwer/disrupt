@@ -38,8 +38,5 @@ class User < ActiveRecord::Base
     roles.map(&:name).include? role.to_s
   end
 
-  def after_sign_in_path_for(resource)
-    stored_location_for(resource) || root_path
-  end
   
 end
