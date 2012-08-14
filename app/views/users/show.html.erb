@@ -1,7 +1,7 @@
 
 
 <div class="row">
-	<div class="user-profile rounded-corners shadow span12">
+	<div class="user-profile top-rounded-corners shadow span12">
 		<div class="row">
 			<div class="span12 user-name">
 				<h1><%= @user.name %></h1>
@@ -9,19 +9,27 @@
 		</div>
 		<div class="row">
 			<div class="span12 user-discussions">
-					<% @user.discussions.each do |d| %>
-				        <%= d.title %>
-					<% end %>	
+				<h2>Discussions started by <%=@user.name%></h2>
+				<div class="row">
+					<div class="span12">
+						<% @user.discussions.each do |d| %>
+					        <%= d.title %>
+						<% end %>	
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="span12 user-comments">
-					<% @user.comments.each do |c| %>
-				        <%= c.text %>
-					<% end %>	
+				<h2><%=@user.name%>'s recent comments</h2>
+				<% @user.comments.each do |c| %>
+			        <%= c.text %>
+				<% end %>	
 			</div>
 		</div>
-		<%= link_to 'edit profile', edit_user_path(@user)%>
+		<% if can? :manage, @user %>
+			<%= link_to 'edit profile', edit_user_path(@user)%>
+		<% end %>
 
 	</div>
 </div>
