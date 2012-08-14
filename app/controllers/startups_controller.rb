@@ -29,8 +29,7 @@ class StartupsController < ApplicationController
   # GET /startups/new.json
   def new
     #@startup = Startup.new
-    @startup.screenshots.build 
-    @startup.logos.build 
+    
 
     respond_to do |format|
       format.html # new.html.erb

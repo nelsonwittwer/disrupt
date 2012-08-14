@@ -4,8 +4,8 @@
     <div class="row">
       <div class="span12 su_title_bar top-rounded-corners">
         <div class="su_logo_div">
-           <%=image_tag @startup.logos.first.image_name.url(:logo) %>
-        </div>
+          <%=image_tag @startup.startup_logo.url%>
+        </div> 
         <div class="su_description">
           <%= @startup.description %>
         </div>
@@ -13,22 +13,7 @@
     </div>
     <div class="row">
       <div class="span12">
-
-        logos: <%= @startup.logos.map(&:image_name).join(", ") %>
-        <br/>
-        screenshots: <%= @startup.screenshots.map(&:image_name).join(", ") %>
-
-        <div id="myCarousel" class="carousel">
-          <!-- Carousel items -->
-          <div class="carousel-inner">
-            <% @startup.screenshots.each do |picture| %>
-              <div class="#{'active' if picture == @startup.screenshots.first} item"><%=image_tag @startup.screenshots.first.image_name.url(:screenshot)%></div>
-            <% end %>
-          </div>
-          <!-- Carousel nav -->
-          <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-          <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-        </div>
+        <%=image_tag @startup.screenshot.url%>
       </div>
     </div>
     <div class="row">
@@ -59,18 +44,9 @@
         </div>
       </div>
     </div>
-    <% if can? :manage, Startup %>
     <div class="row">
       <div class="span12">
-        <div class="su_admin dashed centered">
-        <% if can? :create, Image %>
-          </br ><i class="icon-camera"></i><%= link_to "Add new picture", new_startup_picture_path(@startup) %>
-        <% end %>
-        <% if can? :update, Startup %>
-          <i class="icon-edit"></i><%= link_to 'Edit this page', edit_startup_path(@startup) %>
-        <% end %> 
-        </div> 
-      <% end %>
+        
       </div>
     </div>
     
@@ -78,6 +54,9 @@
       <div class="span12 add_discussion_box dashed">
         <div class="add_discussion">
           <i class="icon-plus-sign"></i><h2><%= link_to 'New Discussion', new_startup_discussion_path(@startup) %></h2>
+          <% if can? :update, Startup %>
+            <i class="icon-edit"></i><%= link_to 'Edit this page', edit_startup_path(@startup) %>
+          <% end %> 
         </div>
       </div>
     </div>
@@ -91,7 +70,7 @@
             <div class="row">
               <div class="span1">
                 <div class="topic-icon rounded">
-                  <%= image_tag d.topic.icon %>
+                  <%= image_tag d.topic.topic_icon.url %>
                 </div>  
               </div>
               <div class="span11">
@@ -99,7 +78,7 @@
                   <h3><%= link_to d.title, startup_discussion_path(@startup, d) %></h3>
                 </div>
                 <div class="discussion-meta span11">
-                Posted by <%= d.user.name %>, <%= d.user.title %> (32)
+                Posted by <%= link_to d.user.name, d.user %>, <%= d.user.title %> (32)
                 <% if can? :update, d %>
                   <%= link_to 'Edit', edit_startup_discussion_path(@startup, d) %>
                 <% end %>

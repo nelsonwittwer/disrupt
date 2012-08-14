@@ -96,11 +96,10 @@
 }
 
 .spotlight{
-	margin-top:14%;
+	margin-top:11%;
 }
 
 .home_about_1{
-	background-image:url('orange_pin.png');
 	height:250px;
 	.row{
 		padding-top:5%;
@@ -110,19 +109,30 @@
 		padding-top:57px;
 	}
 	.icon-group {
-		font-size:100px;
-		margin-top:30px;
+		font-size: 90px;
+		margin-top: 30px;
+		position: relative;
+		top: 20px;
 	}
 	.comment_icon{
 		font-size:175px;
 	}
 	h2{
-		color:white;
 	}
 	#learn_a_ton{
 		margin-top:-16px;
 	}
 }
 
-
+.startup_of_the_week{
+	h2{
+		font-size: 4.5em;
+		text-align: center;
+		font-weight: bold;
+	}
+	i{
+		padding-left:20px;
+		padding-right:20px;
+	}
+}
 

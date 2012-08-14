@@ -1,18 +1,28 @@
-
 <%= simple_form_for [@startup, @discussion] do |f| %>
-
-  <%= f.input :title %>
-  <%= f.association :topic, as: :radio_buttons%>
-  <%= f.hidden_field :user_id %>
-
+<div class="row">
+	<div class="span11 offset1">
+		<%= f.input :title, as: :text %>
+	</div>
+</div>
+<div class="row">
+	<div class="span11 offset1">
+	  <%= f.association :topic, as: :select%>
+	  <%= f.hidden_field :user_id %>
+	</div>
+</div>
+<div class="row">
+	<div class="span5">
+		<div class="actions offset1">
+			<br /><%= f.submit %>
+		</div>
+	</div>
+</div>
   
 
 
   
 
-  <div class="actions">
-    <br /><%= f.submit %>
-  </div>
+  
 
 
 <% end %>

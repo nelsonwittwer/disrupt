@@ -3,12 +3,14 @@
         <div class="span12">
             <div class="row startup_index_row_2">
                 <div class="span9 startup_index_picture">
-                    <%= link_to (image_tag startup.screenshots.first.image_name.url, :class => "rounded-left-side"), startup %>
+                    <%= link_to (image_tag startup.screenshot.url, :class => "rounded-left-side"), startup %>
                 </div>
                 <div class="span3">
                     <div class="startup_index_meta">
 
-                    <div class="startup_index_logo"><%= link_to (image_tag startup.logos.first.image_name.url), startup %></div>
+                    <div class="startup_index_logo">
+                        <%=image_tag startup.startup_logo.url%>
+                    </div>
                     <p class="su_index_descr"><%= startup.description %></p>
                     <i class="icon-comments"></i><h3><%= startup.discussions.count %> <%=link_to "discussions", startup_path(startup)%></h3></br >
 

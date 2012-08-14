@@ -1,5 +1,9 @@
 <% provide(:title, 'Start a New Discussion') %>
-
-<h2>Start a New Discussion About <%= @startup.name %></h2>
+<div class="row">
+	<div class="span12 new_discussion_form rounded-corners shadow">
+		<h2 class="offset1">Start a New Discussion About <%= @startup.name %></h2>
 
 <%= render 'form' %>
+	</div>
+</div>
+

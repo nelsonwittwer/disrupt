@@ -12,7 +12,7 @@
 <% @topics.each do |topic| %>
   <tr>
     <td><%= topic.name %></td>
-    <td><%= image_tag topic.icon %></td>
+    <td><%= image_tag topic.topic_icon.url %></td>
     <td><%= link_to 'Show', topic %></td>
     <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
     <td><%= link_to 'Destroy', topic, confirm: 'Are you sure?', method: :delete %></td>

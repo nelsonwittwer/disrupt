@@ -6,7 +6,7 @@
 		<div class="row">
 	      <div class="span12 su_title_bar top-rounded-corners">
 	        <div class="su_logo_div">
-	          <%= link_to (image_tag @startup.logo.url, :class => "su_logo"), startup_path(@startup) %>
+	          <%= link_to (image_tag @startup.startup_logo.url, :class => "su_logo"), startup_path(@startup) %>
 	        </div>
 	        <div class="su_description">
 	          <%= @startup.description %>
@@ -20,7 +20,7 @@
 					<div class="row">
 						<div class="span1">
 							<div class="topic-icon rounded">
-				              <%= image_tag @discussion.topic.icon %>
+				              <%= image_tag @discussion.topic.topic_icon.url %>
 				            </div>
 				        </div>
 			            <div class="span10"> 
@@ -32,9 +32,9 @@
 							<div class="row">
 								<div class="span10">
 									<div class="discussion_user">
-										<%= image_tag @discussion.user.avatar.url, :class => "user_avatar" %>
+										
 										<div class="discussion_user_name"><h4> 
-											<%= @discussion.user.name %></h4> <%=@discussion.user.title %>
+											<%= link_to @discussion.user.name, @discussion.user %></h4> <%=@discussion.user.title %>
 										</div>
 										
 									</div>

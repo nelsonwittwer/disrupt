@@ -35,15 +35,15 @@
     <%= f.text_area :description %>
   </div>
 
-  <%= f.simple_fields_for :screenshots do |s| %>
-    <%= s.label :screenshot %><br />
-    <%= s.file_field :image_name %>
-  <% end %>
+  <div class="field">
+    <%= f.label :screenshot %><br />
+    <%= f.file_field :screenshot %>
+  </div>
 
-  <%= f.simple_fields_for :logos do |l| %>
-    <%= l.label :logos %><br />
-    <%= l.file_field :image_name %>
-  <% end %>
+  <div class="field">
+    <%= f.label :startup_logo %><br />
+    <%= f.file_field :startup_logo %>
+  </div>
 
   
   <div class="field">

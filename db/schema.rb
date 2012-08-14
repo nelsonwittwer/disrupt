@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120727140947) do
+ActiveRecord::Schema.define(:version => 20120814022731) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
@@ -78,8 +78,16 @@ ActiveRecord::Schema.define(:version => 20120727140947) do
     t.string   "twitter"
     t.string   "crunchbase"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.string   "screenshot_file_name"
+    t.string   "screenshot_content_type"
+    t.integer  "screenshot_file_size"
+    t.datetime "screenshot_updated_at"
+    t.string   "startup_logo_file_name"
+    t.string   "startup_logo_content_type"
+    t.integer  "startup_logo_file_size"
+    t.datetime "startup_logo_updated_at"
   end
 
   create_table "taggings", :force => true do |t|
@@ -101,8 +109,12 @@ ActiveRecord::Schema.define(:version => 20120727140947) do
   create_table "topics", :force => true do |t|
     t.string   "name"
     t.string   "icon"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "topic_icon_file_name"
+    t.string   "topic_icon_content_type"
+    t.integer  "topic_icon_file_size"
+    t.datetime "topic_icon_updated_at"
   end
 
   create_table "users", :force => true do |t|

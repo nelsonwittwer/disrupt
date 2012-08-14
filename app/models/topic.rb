@@ -10,6 +10,8 @@
 #
 
 class Topic < ActiveRecord::Base
-  attr_accessible :icon, :name
+  attr_accessible :name, :topic_icon
   has_many :discussions
+
+  has_attached_file :topic_icon
 end
