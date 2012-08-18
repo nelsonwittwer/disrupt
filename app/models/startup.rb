@@ -25,8 +25,12 @@ class Startup < ActiveRecord::Base
   has_many :tags, :through => :taggings
 
 
-  has_attached_file :screenshot
-  has_attached_file :startup_logo
+  has_attached_file :screenshot,
+   :storage => :s3, :s3_credentials => "#{Rails.root}/config/amazon_s3.yml",
+   :path => "/images/screenshots/:filename"
+  has_attached_file :startup_logo,
+   :storage => :s3, :s3_credentials => "#{Rails.root}/config/amazon_s3.yml",
+   :path => "/images/logos/:filename"
  
 
 

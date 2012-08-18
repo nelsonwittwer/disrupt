@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120814220726) do
+ActiveRecord::Schema.define(:version => 20120818051936) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(:version => 20120814220726) do
     t.string   "name"
     t.string   "title"
     t.string   "pic_file_name"
-    t.integer  "role_id"
+    t.integer  "role_id",                :default => 3
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -34,10 +34,10 @@ describe Startup do
         Factory.create(:startup).should be_valid
     end
     
-    describe "it should pass validators" do
-        #Add validators on Factories later
-        #FactoryGirl.build(:startup, name: nil).should_not be_valid
-    end
+    # describe "it should pass validators" do
+    #     @s = Factory.build(:startup, url:nil)
+    #     @s.should_not be_valid
+    # end
 
 end
 
