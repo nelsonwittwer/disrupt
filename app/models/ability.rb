@@ -3,7 +3,7 @@ class Ability
   
   def initialize(user)
     if user==nil
-      user ||= user.new # guest user
+      user ||= User.new # guest user
       user.role_id=4
     end
     
