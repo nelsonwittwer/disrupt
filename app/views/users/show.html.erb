@@ -27,7 +27,7 @@
 				<% end %>	
 			</div>
 		</div>
-		<% if can? :manage, @user %>
+		<% if can? :update, User %>
 			<%= link_to 'edit profile', edit_user_path(@user)%>
 		<% end %>
 
