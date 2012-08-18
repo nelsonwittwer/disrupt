@@ -32,6 +32,12 @@ class User < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :discussions, :dependent => :destroy
 
+  before_create :init 
+
+  def init
+  	self.role_id=3
+  end
+
   
   
  
