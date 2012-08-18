@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-	<div class="span12 show_discussion rounded-corners shadow">
+	<div class="span12 show_discussion top-rounded-corners shadow">
 		<div class="row">
 	      <div class="span12 su_title_bar top-rounded-corners">
 	        <div class="su_logo_div">
@@ -38,6 +38,13 @@
 										</div>
 										
 									</div>
+								</div>
+							</div>
+							<div class ="row">
+								<div class="span10">
+									<%if can? :update, @discussion %> 
+									<p><%= link_to "Edit this Discussion", edit_startup_discussion_path(@startup, @discussion) %></p>
+									<% end %>
 								</div>
 							</div>
 						</div>

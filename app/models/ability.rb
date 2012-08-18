@@ -17,7 +17,7 @@ class Ability
       can :update, [Discussion] do |discussion|
         discussion.try(:user) == user
       end
-      can :update, [Comment] do |comment|
+      can :manage, [Comment] do |comment|
         comment.try(:user) == user
       end
       can :update, [User] do |u|
