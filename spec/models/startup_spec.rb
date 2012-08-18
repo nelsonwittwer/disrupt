@@ -16,23 +16,27 @@ require 'spec_helper'
 
 describe Startup do
     let(:startup){FactoryGirl.create(:startup)}
+    
+    describe "it should respond to attributes" do
+
         subject {startup}
 
-    it { should respond_to(:crunchbase) }
-    it { should respond_to(:description) }
-    it { should respond_to(:name) }
-    it { should respond_to(:twitter) }
-    it { should respond_to(:url) }
-    it {should be_valid}
-    
-    describe "discussions" do
-        let(:startup){FactoryGirl.create(:startup)}
+        it { should respond_to(:crunchbase) }
+        it { should respond_to(:description) }
+        it { should respond_to(:name) }
+        it { should respond_to(:twitter) }
+        it { should respond_to(:url) }
+        it {should be_valid}
 
-        d = startup.discussions.new
-        d.title="The world is a vampire"
-        d.save
-        d.startup should eq(startup)
-        startup.discussions.first should eq(discussions)
+    end
+
+    it "has a valid factory" do
+        Factory.create(:startup).should be_valid
+    end
+    
+    describe "it should pass validators" do
+        #Add validators on Factories later
+        #FactoryGirl.build(:startup, name: nil).should_not be_valid
     end
 
 end

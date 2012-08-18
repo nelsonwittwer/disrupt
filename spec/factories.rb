@@ -1,9 +1,8 @@
-FactoryGirl.define do
-  factory :startup do
-    name     "Starupzz"
-    url		 "startup.com"
-    description	"startup from heaven"
-    twitter "@startupzz"
-    crunchbase "crunchbase.com/companies/startupzz"
-  end
+
+Factory.define :startup do |s|
+s.sequence(:name)     { |n| "Starupt #{n}"}
+s.sequence(:url)		{|i| "startup#{i}.com"}
+s.description	"startup from heaven"
+s.twitter "@startupzz"
+s.crunchbase "crunchbase.com/companies/startupzz"
 end
