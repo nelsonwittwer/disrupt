@@ -143,9 +143,13 @@ h2 {
   color: $base;
 }
 
-p {
+p, ul {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+.navbar .nav ul li a{
+  color:$base !important;
 }
 
 a{
@@ -192,7 +196,7 @@ footer {
   padding-top: 5px;
   border-top: 2px solid $base;
   border-bottom: 2px solid $base;
-  min-height: 222px;
+  /*min-height: 222px;*/
   color: $dark;
   a {
     color: $dgray;
@@ -742,3 +746,24 @@ footer {
   height:95px;
 }
 
+/* static pages */
+.static-pages{
+  background-color:white;
+  padding-bottom:6%;
+  h1{
+    padding-top:2%;
+    padding-left:2.5%;
+  }
+  
+  .contact-page{
+    p{
+      margin-bottom:3%;
+    }
+  }
+}
+
+.suggest-page{
+  h1, p, ul{
+    padding-left:2.5%;
+  }
+}
