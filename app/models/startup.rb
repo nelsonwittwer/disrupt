@@ -32,6 +32,7 @@ class Startup < ActiveRecord::Base
    :storage => :s3, :s3_credentials => "#{Rails.root}/config/amazon_s3.yml",
    :path => "/images/logos/:filename"
  
+  
 
 
 end

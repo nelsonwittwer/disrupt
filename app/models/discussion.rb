@@ -22,5 +22,7 @@ class Discussion < ActiveRecord::Base
   validates :title, :uniqueness => true
   validates :user_id, :presence => true
 
-
+  def get_startup
+    @startup = Startup.find(self.imageable_id)
+  end
 end

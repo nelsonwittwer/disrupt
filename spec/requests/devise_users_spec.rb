@@ -37,13 +37,13 @@ describe "DeviseUsers" do
 
 		it "should allow you to login" do
 			login_a_sample_user
-			page.should have_content("Signed in")
+			page.should have_content("Welcome back!")
 		end
 
 		it "should allow you to log out" do
 			login_a_sample_user
 			click_link 'Sign out'
-			page.should have_content ("Signed out")
+			page.should have_content ("Thanks for stopping by!")
 		end
 
 		it "should keep you signed in even after you leave" do
@@ -57,6 +57,7 @@ describe "DeviseUsers" do
 
 			it "should be able to edit their profile" do
 				login_a_sample_user
+				visit user_path(@user)
 				click_link 'Edit Profile'
 				page.should have_content("Edit")
 			end
@@ -67,8 +68,6 @@ describe "DeviseUsers" do
 				visit edit_user_path(@user2)
 				page.should have_content("You are not authorized to access this page")
 			end
-
 		end
 	end
-
 end

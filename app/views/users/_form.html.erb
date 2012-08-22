@@ -1,71 +1,69 @@
-<div class="row">
-  <div class="span12">
-    <%= simple_form_for @user do |f| %>  
-      <% if @user.errors.any? %>
-        <div class="row">
-          <div class="span12">
-            <div id="error_explanation">
-              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%= simple_form_for @user do |f| %>  
+  <% if @user.errors.any? %>
+    <div class="row">
+      <div class="span12">
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-              <ul>
-                <% @user.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      <div class="row">
-        <div class="span11 offset1">
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.text_field :email %>
-          </div>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
-      <div class="row">
-        <div class="span11 offset1">
-          <div class="field">
-            <%= f.label :name %><br />
-            <%= f.text_field :name %>
-          </div>
-        </div>
+    </div>
+  <% end %>
+  <% if @current_method == "new" %>
+  <div class="row">
+    <div class="span4 offset1">
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.text_field :email %>
       </div>
-      <div class="row">
-        <div class="span11 offset1">
-          <div class="field">
-            <%= f.label :title %><br />
-            <%= f.text_field :title %>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="span11 offset1">
-          <% if @current_method == "new" %>
-            <div class="field">
-              <%= f.label :password %><br />
-              <%= f.password_field :password %>
-            </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="span11 offset1">
-          <div class="field">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation %>
-          </div>
-        </div>
-      </div>
-          <% end %>
-     
-      <div class="row">
-        <div class="span11 offset1">
-          <div class="actions">
-            <%= f.submit %>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    </div>
   </div>
-</div>
+  <% end %>
+  <div class="row">
+    <div class="span4 offset1">
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span4 offset1">
+      <div class="field">
+        <%= f.label :title %><br />
+        <%= f.text_field :title %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span4 offset1">
+      <% if @current_method == "new" %>
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password %>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span4 offset1">
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+  </div>
+      <% end %>
+ 
+  <div class="row">
+    <div class="span2">
+      <div class="actions">
+        <%= f.submit "Update Profile"%>
+      </div>
+    </div>
+  </div>
+<% end %>

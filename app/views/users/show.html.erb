@@ -1,35 +1,82 @@
 
-
 <div class="row">
-	<div class="user-profile top-rounded-corners shadow span12">
-		<div class="row">
-			<div class="span12 user-name">
-				<h1><%= @user.name %></h1>
+	<div class="span12">
+		<div class="user-profile top-rounded-corners shadow">
+			<div class="row">
+				<div class="span9">
+					<h1>
+						<%= @user.name %>
+					</h1>
+				</div>
+				<div class="span3 edit-user-link">
+					<h2>
+						<i class="icon-edit"></i>
+						<% if can? :update, User %>
+							<%= link_to 'Edit Profile', edit_user_path(@user)%>
+						<% end %>
+					</h2>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="span12 user-discussions">
-				<h2>Discussions started by <%=@user.name%></h2>
-				<div class="row">
-					<div class="span12">
+
+			<div class="row">
+				<div class="span12 user-title">
+					<h3>
+						<%= @user.title if @user.title %>
+					</h3>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="span12 user-discussions">
+
+					<% if @user.discussions.count > 0%>
+					<h2>Discussions started by <%=@user.name%></h2>
+
+						<div class="row">
+							<div class="user-discussion-links">
+								<div class="span2 user-discussion-logo">
+									<h6>Startup</h6>
+								</div>
+								<div class="span1">
+									<h6>Category</h6>
+								</div>
+								<div class="span8">
+							        <h6>Discussion Title</h6>
+						        </div>
+						    </div>
+						</div>
 						<% @user.discussions.each do |d| %>
-					        <%= d.title %>
+						
+						<div class="row">
+							<div class="user-discussion-links">
+								<div class="span2 user-discussion-logo">
+									<%= link_to (image_tag d.get_startup.startup_logo.url), startup_discussion_path(d.get_startup, d)%>
+								</div>
+								<div class="span1">
+									<div class="topic-icon rounded">
+										<%= image_tag d.topic.topic_icon.url %>
+									</div>
+								</div>
+								<div class="span8">
+							        <h4><%= link_to d.title, startup_discussion_path(d.get_startup, d) %></h4>
+						        </div>
+						    </div>
+						</div>
 						<% end %>	
-					</div>
+							
+					<% end %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span12 user-comments">
+					<% if @user.comments.count > 0%>
+						<h2><%=@user.name%>'s recent comments</h2>
+						<% @user.comments.each do |c| %>
+					        <%= c.text %>
+						<% end %>
+					<% end %>	
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="span12 user-comments">
-				<h2><%=@user.name%>'s recent comments</h2>
-				<% @user.comments.each do |c| %>
-			        <%= c.text %>
-				<% end %>	
-			</div>
-		</div>
-		<% if can? :update, User %>
-			<%= link_to 'edit profile', edit_user_path(@user)%>
-		<% end %>
-
 	</div>
 </div>
