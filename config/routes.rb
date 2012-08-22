@@ -1,10 +1,6 @@
 Disrupt::Application.routes.draw do
 
-  
 
-  get "avatar/new"
-
-  get "avatar/show"
 
   resources :tags
 

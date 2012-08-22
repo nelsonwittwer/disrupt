@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   # accepts_nested_attributes_for :picture, :allow_destroy => true
   has_many :comments, :dependent => :destroy
   has_many :discussions, :dependent => :destroy
+  validates :name, :email, :encrypted_password, :presence => true
   
   
  

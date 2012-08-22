@@ -11,7 +11,7 @@
 					<%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
 				</div>
 				<div class="signup_actions signin">
-					<%= f.button :submit, "Sign in", :class =>'btn-warning btn-large signin_btn'  %></br >
+					<%= f.button :submit, "Sign in", :class =>'btn-warning btn-large signin_btn', :id => 'signin_btn'  %></br >
 					<%= render "links" %>
 				</div>
 			</div>
