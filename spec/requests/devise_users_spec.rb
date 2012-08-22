@@ -53,17 +53,21 @@ describe "DeviseUsers" do
 			page.should_not have_link ("Sign in")
 		end
 
-		it "should be able to edit their profile" do
-			login_a_sample_user
-			click_link 'Edit Profile'
-			page.should have_content("Edit")
-		end
+		context "editing profiles" do
 
-		it "should only allow you to edit your account" do
-			@user2=FactoryGirl.create(:user)
-			login_a_sample_user
-			visit edit_user_path(@user2)
-			page.should have_content("You are not authorized to access this page.")
+			it "should be able to edit their profile" do
+				login_a_sample_user
+				click_link 'Edit Profile'
+				page.should have_content("Edit")
+			end
+
+			it "should only allow you to edit your account" do
+				@user2=FactoryGirl.create(:user)
+				login_a_sample_user
+				visit edit_user_path(@user2)
+				page.should have_content("You are not authorized to access this page")
+			end
+
 		end
 	end
 
