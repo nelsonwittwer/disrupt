@@ -1,67 +1,126 @@
 <div class="row">
-	<div class="span12 landing_hero top-rounded-corners shadow">
-		<div class="row visible-desktop">
-			<div class="span2 disruptage">
-				<h1>disruptage.</h1>
-			</div>
-			<div class="span4 landing_hero_description">
-				<h1>discuss today's most disruptive companies.</h1>
-				<div class="landing_signup_button">
-					<%= link_to "sign up!", signup_path, :class => "btn btn-large btn-warning" %>
-					<h2>always free.</h2>
+	<% if user_signed_in? == false%>
+		<div class="span12 landing_hero top-rounded-corners shadow">
+			<div class="row visible-desktop">
+				<div class="span2 disruptage">
+					<h1>disruptage.</h1>
 				</div>
-			</div>
-		</div>
-		<div class="row tablet_header visible-tablet">
-			<div class="span2 disruptage">
-				<h1>disruptage.</h1>
-			</div>
-			<div class="span5 landing_hero_description">
-				<h1>discuss today's most disruptive companies.</h1>
-				<div class="landing_signup_button">
-					<%= link_to "sign up!", signup_path, :class => "btn btn-large btn-warning" %>
-					<h2>always free.</h2>
-				</div>
-			</div>
-		</div>
-		<div class="row phone_header visible-phone">
-			<div class="span10 offset2 disruptage">
-				<h1>disruptage.</h1>
-			</div>
-			<div class="row">
-				<div class="span6 landing_signup_button">
-					<%= link_to "sign up!", signup_path, :class => "btn btn-large btn-warning" %>
-					<h2>always free.</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="span12 landing_hero_description_mobile">
+				<div class="span4 landing_hero_description">
 					<h1>discuss today's most disruptive companies.</h1>
+					<div class="landing_signup_button">
+						<%= link_to "sign up!", signup_path, :class => "btn btn-large btn-warning" %>
+						<h2>always free.</h2>
+					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="row spotlight">
-			<div class="span12 startup_of_the_week">
-				<h2><i class="icon-chevron-down hidden-phone"></i>   this week's startup   <i class="icon-chevron-down hidden-phone"></i></h2>
+			<div class="row tablet_header visible-tablet">
+				<div class="span2 disruptage">
+					<h1>disruptage.</h1>
+				</div>
+				<div class="span5 landing_hero_description">
+					<h1>discuss today's most disruptive companies.</h1>
+					<div class="landing_signup_button">
+						<%= link_to "sign up!", signup_path, :class => "btn btn-large btn-warning" %>
+						<h2>always free.</h2>
+					</div>
+				</div>
 			</div>
-		</div>
-		
+			<div class="row phone_header visible-phone">
+				<div class="span10 offset2 disruptage">
+					<h1>disruptage.</h1>
+				</div>
+				<div class="row">
+					<div class="span6 landing_signup_button">
+						<%= link_to "sign up!", signup_path, :class => "btn btn-large btn-warning" %>
+						<h2>always free.</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span12 landing_hero_description_mobile">
+						<h1>discuss today's most disruptive companies.</h1>
+					</div>
+				</div>
+			</div>
 
-		<section class="home_about_1">
+			<div class="row spotlight">
+				<div class="span12 startup_of_the_week">
+					<h2><i class="icon-chevron-down hidden-phone"></i>   this week's startup   <i class="icon-chevron-down hidden-phone"></i></h2>
+				</div>
+			</div>
+
+			<%= render 'featured_startup' %>
+
 			<div class="row">
-				<div class="span4 offset2">
-					<h2><i>We</i> showcase amazing disruptive companies, <i>you</i> share your insights about marketing, code, sales, or whatever you know.</h2><h2 id="learn_a_ton"> <i>We</i> all learn a ton. </h2>
+				<div class="span12 topics-splash">
+					<div class="row">
+						<div class="span7">
+							<h2><i>We</i> showcase amazing disruptive companies, <i>you</i> share your insights about marketing, code, sales, or whatever you know.</h2><h2 id="learn_a_ton"> <i>We</i> all learn a ton. </h2>
+						</div>
+						<div class="span4">
+							<%= image_tag "Topics-Splash.png"%>
+						</div>
+					</div>
 				</div>
-				<div class="span2 offset1 group_icon hidden-phone">
-		          <i class="icon-group"></i>
-			    </div>
-			    <div class="span3 comment_icon hidden-phone">
-		          <i class="icon-comment-alt"></i>
-			    </div>
+	<% end %>
+
+	<% if user_signed_in? == true%>
+		<div class="span12 landing_hero top-rounded-corners shadow">
+			<%= render 'featured_startup' %>
+	<% end %>
+
+
+			<div class="row">
+				<div class="span12 discussion-highlight">
+					<h1>Popular Discussions:</h1>
+					<div class"row">
+						<div class="span2">
+							<%= image_tag Startup.last.startup_logo.url %>
+						</div>
+						<div class"span2">
+							<div class="topic-icon rounded">
+			                  <%= image_tag Startup.last.discussions.first.topic.topic_icon.url %>
+			                </div>
+						</div>
+						<div class="span6">
+							<h2><%= link_to Startup.last.discussions.first.title, startup_discussion_path(Startup.last, Startup.last.discussions.first) %>
+							</h2>
+							<div class="row">
+								<div class="span6">
+									<h4>posted by <%= link_to (User.find(Startup.last.discussions.first.user_id).name), user_path(User.find(Startup.last.discussions.first.user_id))%></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		</section>
+
+			<div class="row">
+				<div class="span12 discussion-highlight">
+					<div class"row">
+						<div class="span2">
+							<%= image_tag Startup.last.startup_logo.url %>
+						</div>
+						<div class"span2">
+							<div class="topic-icon rounded">
+			                  <%= image_tag Startup.last.discussions.last.topic.topic_icon.url %>
+			                </div>
+						</div>
+						<div class="span6">
+							<h2><%= link_to Startup.last.discussions.last.title, startup_discussion_path(Startup.last, Startup.last.discussions.last) %>
+							</h2>
+							<div class="row">
+								<div class="span6">
+									<h4>posted by <%= link_to (User.find(Startup.last.discussions.last.user_id).name), user_path(User.find(Startup.last.discussions.last.user_id))%></h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% if user_signed_in? == false%>
 	</div>
+	<% end %>
 </div>
 
 

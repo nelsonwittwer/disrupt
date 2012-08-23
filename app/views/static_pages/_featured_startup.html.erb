@@ -1,0 +1,49 @@
+<div class="startup_index_row hidden-phone">
+    <div class="row">
+        <div class="span12">
+            <div class="span9 startup_index_picture">
+                <%= link_to (image_tag Startup.last.screenshot.url), startup_path(Startup.last) %>
+            </div>
+            <div class="span3">
+                <div class="startup_index_meta">
+                    <div class="startup_index_logo">
+                        <%=image_tag Startup.last.startup_logo.url%>
+                    </div>
+                    <p class="su_index_descr"><%= Startup.last.description %></p>
+                    <i class="icon-comments"></i><h3><%= Startup.last.discussions.count %> <%=link_to "discussions", startup_path(Startup.last)%></h3></br >
+                    <% if can? :update, Startup.last %>
+                        <%= link_to 'Edit', edit_startup_path(Startup.last) %>
+                    <% end %>
+                    <% if can? :destroy, Startup.last %>    
+                        <%= link_to 'Destroy', Startup.last, confirm: 'Are you sure?', method: :delete %>
+                    <% end %>
+                </div>
+            </div>
+        </div> 
+    </div> 
+</div>
+
+<div class="startup_index_row  visible-phone">
+    <div class="row">
+        <div class="span12">
+            <div class="span3">
+                <div class="startup_index_meta">
+                    <div class="startup_index_logo">
+                        <%=image_tag Startup.last.startup_logo.url%>
+                    </div>
+                    <p class="su_index_descr"><%= Startup.last.description %></p>
+                    <i class="icon-comments"></i><h3><%= link_to Startup.last.discussions.count, startup_path(Startup.last) %> <%=link_to "discussions", startup_path(Startup.last)%></h3></br >
+                    <% if can? :update, Startup.last %>
+                        <%= link_to 'Edit', edit_startup_path(Startup.last) %>
+                    <% end %>
+                    <% if can? :destroy, Startup.last %>    
+                        <%= link_to 'Destroy', Startup.last, confirm: 'Are you sure?', method: :delete %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="span9 startup_index_picture">
+                <%= link_to (image_tag Startup.last.screenshot.url, :class => "rounded-corners"), Startup.last %>
+            </div>
+        </div> 
+    </div> 
+</div>
