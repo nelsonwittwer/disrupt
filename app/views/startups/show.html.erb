@@ -65,41 +65,9 @@
     <div class="row">
       <div class="span12 discussions">
         <% @startup.discussions.each do |d| %>
-        <div class="row">
-          <div class="span12 startup-discussion">
-            <div class="row">
-              <div class="span2">
-                <div class="topic-icon rounded">
-                  <%= image_tag d.topic.topic_icon.url %>
-                </div>
-              </div> 
-              <div class="discussion span10">
-                <h3><%= d.reputation_value_for(:votes).to_i%><%= link_to d.title, startup_discussion_path(@startup, d) %></h3>
-              </div>
-              <div class="row">
-                <div class="discussion-meta span10">
-                Posted by <%= link_to d.user.name, d.user %>, <%= d.user.title %> (32)
-                <% if can? :update, d %>
-                  <%= link_to 'Edit', edit_startup_discussion_path(@startup, d) %>
-                <% end %>
-                <% if can? :destroy, d %>
-                  <%= link_to 'Delete', [@startup, d], confirm: 'Are you sure?', method: :delete %>
-                <% end %>
-                </div>
-              </div>
-              <div class="row">
-                <div class="span10">
-                  | <%= pluralize d.reputation_value_for(:votes).to_i, "vote" %>
-                  <% if current_user && !current_user.voted_for?(d) %>
-                    | <%= link_to "up", vote_startup_discussion_path(d.get_startup, d, type: "up"), method: "post" %>
-                    | <%= link_to "down", vote_startup_discussion_path(d.get_startup, d, type: "down"), method: "post" %>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>          
-          <% end %>
+        <% @d = d %>
+          <%= render 'startups/discussion', :locals => {:startup => @startup, :discussion => @d} %>
+        <% end %>
       </div>
     </div>
 

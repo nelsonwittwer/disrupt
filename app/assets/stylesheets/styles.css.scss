@@ -45,6 +45,7 @@ textarea {
   }
 }
 
+
 .social-button{
   background-color:$lgray;
    height: 30px;
@@ -415,13 +416,12 @@ footer {
 }
 
 .topic-icon{
-    
+  float:left;
   background-color: $lgray;
   height: 50px;
   width:50px;
   margin-left: 27px;
   margin-top: -7px;
-  float:right;
 
   img{
     max-width:35px;
@@ -432,6 +432,40 @@ footer {
   }
 
 }
+
+
+
+.discussion-vote-meta{
+   .topic-icon{
+    float:right;
+    margin-left:0px;  
+  }
+
+  h6{
+    float: left;
+    display: inline;
+    font-size: 1.5em;
+    padding-left: 13%;
+    color: $dark;
+    padding-top: 6%;
+  }
+
+  .vote-arrows{
+  font-size:1.5em;
+  color:$dark;
+  width:14px;
+  float:left;
+  padding-left:10%;
+  }
+
+
+
+  i{
+    float:left;
+  }
+  
+}
+
 
 
 /* discussion */

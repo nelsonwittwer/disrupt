@@ -15,7 +15,9 @@
 require 'spec_helper'
 
 describe Startup do
+    include Rails.application.routes.url_helpers
     let(:startup){FactoryGirl.create(:startup)}
+
     
     describe "it should respond to attributes" do
 
@@ -26,6 +28,9 @@ describe Startup do
         it { should respond_to(:name) }
         it { should respond_to(:twitter) }
         it { should respond_to(:url) }
+        it { should respond_to(:discussions) }
+        it { should respond_to(:screenshot) }
+        it { should respond_to(:startup_logo) }
         it {should be_valid}
 
     end
@@ -38,6 +43,8 @@ describe Startup do
         @s = Factory.build(:startup, url:nil)
         @s.should_not be_valid
     end
+
+   
 
 end
 

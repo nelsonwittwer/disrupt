@@ -48,7 +48,9 @@
 				</div>
 			</div>
 
-			<%= render 'featured_startup' %>
+			<% if Startup.last %> 
+				<%= render 'startups/startup_index', :startup => Startup.last %>
+			<% end %>
 
 			<div class="row">
 				<div class="span12 topics-splash">
@@ -61,66 +63,26 @@
 						</div>
 					</div>
 				</div>
+			</div>
 	<% end %>
 
-	<% if user_signed_in? == true%>
+	<% if user_signed_in? == true && Startup.last%>
 		<div class="span12 landing_hero top-rounded-corners shadow">
-			<%= render 'featured_startup' %>
+			<%= render 'startups/startup_index', :startup => Startup.last %>
 	<% end %>
 
-	<% if Startup.last %>
+	<% if Startup.last && Startup.last.discussions.first %>
+			<% @startup = Startup.last %>
 			<div class="row">
-				<div class="span12 discussion-highlight">
-					<h1>Popular Discussions:</h1>
-					<div class"row">
-						<div class="span2">
-							<%= image_tag Startup.last.startup_logo.url %>
-						</div>
-						<div class"span2">
-							<div class="topic-icon rounded">
-			                  <%= image_tag Startup.last.discussions.first.topic.topic_icon.url %>
-			                </div>
-						</div>
-						<div class="span6">
-							<h2><%= link_to Startup.last.discussions.first.title, startup_discussion_path(Startup.last, Startup.last.discussions.first) %>
-							</h2>
-							<div class="row">
-								<div class="span6">
-									<h4>posted by <%= link_to (User.find(Startup.last.discussions.first.user_id).name), user_path(User.find(Startup.last.discussions.first.user_id))%></h4>
-								</div>
-							</div>
-						</div>
-					</div>
+				<div class="span12">
+					<%= image_tag @startup.startup_logo.url %>
 				</div>
 			</div>
-
-			<div class="row">
-				<div class="span12 discussion-highlight">
-					<div class"row">
-						<div class="span2">
-							<%= image_tag Startup.last.startup_logo.url %>
-						</div>
-						<div class"span2">
-							<div class="topic-icon rounded">
-			                  <%= image_tag Startup.last.discussions.last.topic.topic_icon.url %>
-			                </div>
-						</div>
-						<div class="span6">
-							<h2><%= link_to Startup.last.discussions.last.title, startup_discussion_path(Startup.last, Startup.last.discussions.last) %>
-							</h2>
-							<div class="row">
-								<div class="span6">
-									<h4>posted by <%= link_to (User.find(Startup.last.discussions.last.user_id).name), user_path(User.find(Startup.last.discussions.last.user_id))%></h4>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+	        <% @startup.discussions.each do |d| %>
+				<% @d = d %>
+				<%= render 'startups/discussion', :locals => {:startup =>@startup, :discussion => @d} %>
+			<% end %>
 		</div>
-		<% end %>
-	<% if user_signed_in? == false%>
-	</div>
 	<% end %>
 </div>
 
