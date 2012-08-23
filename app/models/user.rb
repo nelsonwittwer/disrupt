@@ -32,6 +32,13 @@ class User < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :discussions, :dependent => :destroy
   validates :name, :email, :encrypted_password, :presence => true
+
+  has_reputation :votes, source: {reputation: :votes, of: :discussions}, aggregated_by: :sum
+  has_many :evaluations, class_name: "RSEvaluation", as: :source
+
+  def voted_for?(d)
+  	evaluations.where(target_type: d.class, target_id: d.id).present?
+  end
   
   
  

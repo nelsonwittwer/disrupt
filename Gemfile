@@ -19,7 +19,7 @@ gem 'pg'
 gem 'chosen-rails'
 gem 'font-awesome-sass-rails'
 gem 'heroku'
-
+gem 'activerecord-reputation-system', require: 'reputation_system'
 
 
 group :development, :test do

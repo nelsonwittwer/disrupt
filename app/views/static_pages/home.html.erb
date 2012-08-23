@@ -68,7 +68,7 @@
 			<%= render 'featured_startup' %>
 	<% end %>
 
-
+	<% if Startup.last %>
 			<div class="row">
 				<div class="span12 discussion-highlight">
 					<h1>Popular Discussions:</h1>
@@ -118,6 +118,7 @@
 				</div>
 			</div>
 		</div>
+		<% end %>
 	<% if user_signed_in? == false%>
 	</div>
 	<% end %>

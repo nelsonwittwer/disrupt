@@ -22,6 +22,8 @@ class Discussion < ActiveRecord::Base
   validates :title, :uniqueness => true
   validates :user_id, :presence => true
 
+  has_reputation :votes, source: :user, aggregated_by: :sum
+  
   def get_startup
     @startup = Startup.find(self.imageable_id)
   end
