@@ -3,7 +3,7 @@
 		<div class="comment">
 			
 			<div class="comment_author">
-				<h3><%=comment.user.name %></h3><%= comment.user.title %>
+				<h4><%=display_user(comment.user)%></h4>
 			</div>
 			<div class="comment_text">
 				<p><%= comment.text %></p>

@@ -18,7 +18,7 @@
         <h3><%= link_to @d.title, startup_discussion_path(@startup, @d) %></h3>
         <div class="row">
           <div class="discussion-meta span10">
-          Posted by <%= link_to @d.user.name, @d.user %>, <%= @d.user.title %> (32)
+          Posted by <%= display_user(@d.user)%>
           <% if can? :update, @d %>
             <%= link_to 'Edit', edit_startup_discussion_path(@startup, @d) %>
           <% end %>
