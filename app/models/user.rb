@@ -38,7 +38,13 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar,
    :styles => { :full => "80x80#", :thumb => "40x40#" },
-   :storage => :s3, :s3_credentials => "#{Rails.root}/config/amazon_s3.yml",
+   :storage => :s3,
+   :s3_credentials => {
+    :access_key_id => ENV['S3_KEY'] ? :s3 : :filesystem,
+    :secret_access_key => ENV['S3_SECRET'] ? :s3 : :filesystem,
+  },
+  :bucket => ENV['S3_BUCKET'] ? :s3 : :filesystem,
+
    :path => "/images/avatar/:filename"
 
   validates_attachment :avatar, 
