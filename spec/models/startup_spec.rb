@@ -15,9 +15,7 @@
 require 'spec_helper'
 
 describe Startup do
-    include Rails.application.routes.url_helpers
     let(:startup){FactoryGirl.create(:startup)}
-
     
     describe "it should respond to attributes" do
 
@@ -42,6 +40,79 @@ describe Startup do
     it "should pass validators" do
         @s = Factory.build(:startup, url:nil)
         @s.should_not be_valid
+    end
+
+    context "CanCan authorization" do
+
+        context "for usuers" do
+            it "shouldn't allow regular users to create a startup" do
+                user=FactoryGirl.create(:user)
+                ability=Ability.new(user)
+                authorize = ability.can? :create, Startup
+                authorize.should be_false
+            end
+
+            it "shouldn't allow regular users to edit a startup" do
+                user=FactoryGirl.create(:user)
+                ability=Ability.new(user)
+                authorize = ability.can? :update, Startup
+                authorize.should be_false
+            end
+
+            it "shouldn't allow regular users to delete a startup" do
+                user=FactoryGirl.create(:user)
+                ability=Ability.new(user)
+                authorize = ability.can? :delete, Startup
+                authorize.should be_false
+            end
+        end
+
+        context "for admins" do
+            it "should allow admins to create a startup" do
+            user=FactoryGirl.create(:admin)
+            ability=Ability.new(user)
+            authorize = ability.can? :create, Startup
+            authorize.should be_true
+            end 
+
+            it "should allow admins to edit a startup" do
+                user=FactoryGirl.create(:admin)
+                ability=Ability.new(user)
+                authorize = ability.can? :update, Startup
+                authorize.should be_true
+            end
+
+            it "should allow admins to delete a startup" do
+                user=FactoryGirl.create(:admin)
+                ability=Ability.new(user)
+                authorize = ability.can? :delete, Startup
+                authorize.should be_true
+            end
+        end
+
+        context "for moderators" do
+            it "should allow moderators to create a startup" do
+            user=FactoryGirl.create(:mod)
+            ability=Ability.new(user)
+            authorize = ability.can? :create, Startup
+            authorize.should be_true
+            end 
+
+            it "should allow moderators to edit a startup" do
+                user=FactoryGirl.create(:mod)
+                ability=Ability.new(user)
+                authorize = ability.can? :update, Startup
+                authorize.should be_true
+            end
+
+            it "should allow moderators to delete a startup" do
+                user=FactoryGirl.create(:mod)
+                ability=Ability.new(user)
+                authorize = ability.can? :delete, Startup
+                authorize.should be_true
+            end
+        end  
+
     end
 
    

@@ -4,6 +4,9 @@
 		<div class="user-profile top-rounded-corners shadow">
 			<div class="row">
 				<div class="span9">
+					<% if @user.avatar!=nil %>
+						<%=display_avatar(@user)%>
+					<% end %>
 					<h1>
 						(<%= @user.reputation_value_for(:votes).to_i%>)
 						<%= @user.name %>

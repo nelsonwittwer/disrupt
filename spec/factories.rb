@@ -12,6 +12,15 @@ FactoryGirl.define do
 	    sequence(:email) { |n| "User#{n}@example.com" }
 	    password    "foobar"
 	    password_confirmation "foobar"
+	    role_id 3
+	end
+
+	factory :admin, parent: :user do
+		role_id	1
+	end
+
+	factory :mod, parent: :user do
+		role_id	2
 	end
 
 end

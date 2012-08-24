@@ -2,27 +2,6 @@ require 'spec_helper'
 
 describe "DeviseUsers" do
 
-	context "registration proces" do
-		it "should be valid" do
-			@user=FactoryGirl.create(:user)
-		  	@user.should be_valid
-		end
-
-		it "should not be valid without a name " do
-			@user=FactoryGirl.build(:user, name: nil)
-			@user.should_not be_valid
-		end
-
-		it "should require an email address" do
-			@user=FactoryGirl.build(:user, email:nil)
-			@user.should_not be_valid
-		end
-
-		it "should require an encrypted password" do
-			@user=FactoryGirl.build(:user, encrypted_password:nil)
-			@user.should_not be_valid
-		end
-	end
 
 	context "authentication for a user" do
 

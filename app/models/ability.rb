@@ -10,11 +10,11 @@ class Ability
     if user.role_id == 1
       can :manage, :all
     elsif user.role_id == 2
-      can :manage, Startup, Discussion, Comment      
+      can :manage, [Startup, Discussion, Comment]      
     elsif user.role_id == 3
       can :read, :all
       can :create, [Discussion, Comment]
-      can :update, [Discussion] do |discussion|
+      can :manage, [Discussion] do |discussion|
         discussion.try(:user) == user
       end
       can :vote, [Discussion, Comment]

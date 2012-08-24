@@ -21,20 +21,29 @@
 #
 
 class User < ActiveRecord::Base
+  validates :name, :email, :encrypted_password, :presence => true
+
   belongs_to :role
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids, :name, :title, :picture
-  # has_one :picture, :dependent => :destroy
-  # accepts_nested_attributes_for :picture, :allow_destroy => true
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids, :name, :title, :avatar
+  
   has_many :comments, :dependent => :destroy
   has_many :discussions, :dependent => :destroy
-  validates :name, :email, :encrypted_password, :presence => true
 
   has_reputation :votes, source: {reputation: :votes, of: :discussions}, aggregated_by: :sum
   has_many :evaluations, class_name: "RSEvaluation", as: :source
+
+  has_attached_file :avatar,
+   :styles => { :full => "80x80#", :thumb => "40x40#" },
+   :storage => :s3, :s3_credentials => "#{Rails.root}/config/amazon_s3.yml",
+   :path => "/images/avatar/:filename"
+
+  validates_attachment :avatar, 
+  :content_type => { :content_type => ['image/jpeg', 'image/jpg', 'image/png'] },
+  :size => { :in => 0..100.kilobytes }
 
   def voted_for?(d)
   	evaluations.where(target_type: d.class, target_id: d.id).present?

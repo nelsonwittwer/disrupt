@@ -18,5 +18,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   has_ancestry
 
+  validates :text, :user_id, :imageable_id, :presence => true
+
 
 end

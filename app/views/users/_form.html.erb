@@ -42,6 +42,14 @@
   </div>
   <div class="row">
     <div class="span4 offset1">
+      <div class="field">
+        <%= f.label :avatar %><br />
+        <%= f.file_field :avatar %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span4 offset1">
       <% if @current_method == "new" %>
         <div class="field">
           <%= f.label :password %><br />
