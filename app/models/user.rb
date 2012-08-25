@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
   has_many :evaluations, class_name: "RSEvaluation", as: :source
 
   has_attached_file :avatar,
+     :styles => { :full => "80x80#", :thumb => "40x40#" },
    :storage => :s3,
   :s3_credentials => {
     :access_key_id => ENV['S3_KEY'],
