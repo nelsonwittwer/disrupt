@@ -466,21 +466,19 @@ footer {
     text-align: center;
   }
 
-  .vote-arrows{
+  i{
+    float:left;
+  }
+  
+}
+
+.vote-arrows{
   font-size:1.5em;
   color:$dark;
   width:14px;
   float:left;
   padding-left:10%;
   }
-
-
-
-  i{
-    float:left;
-  }
-  
-}
 
 
 
@@ -506,6 +504,7 @@ footer {
 
 .discussion_title{
   padding-left:3%;
+  img{float:right;}
 }
 
 
@@ -571,7 +570,7 @@ footer {
 /* comments */
 
 .discussion_comment_parent{
-  padding-left:10px;
+  padding-left:1%;
   padding-top:20px;
 }
 
@@ -618,12 +617,26 @@ footer {
     font-size: 11px !important;
     line-height: 12px !important;
   }
+  .vote-arrows{
+    font-size:1.3em;
+    padding-right:1%;
+    padding-left:1%;
+    i{
+      margin-bottom:-5px;
+    }
+  }
+  .vote-count{
+    text-align: right;
+    float:left;
+    font-size:1.5em;
+    color:$dark;
+    margin-right:2%;
+  }
 }
 
 .comment_author{
   color:$dgray;
   color:$dgray;
-  margin-left:3%;
   h3{
     padding-right:7px;
   }
@@ -631,16 +644,16 @@ footer {
 
 .comment_text{
   color:$dgray;
-  margin-left:70px;
+  margin-left:1%;
 }
 .nested_comments {
-  margin-left: 30px;
-  padding-left:10px;
+  margin-left: 1%;
+  padding-left:2%;
   padding-top:20px;
 }
 
 .comment_actions{
-  margin-left:70px;
+  margin-left:8%;
 }
 
 /* registration */
