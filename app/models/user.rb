@@ -37,14 +37,14 @@ class User < ActiveRecord::Base
   has_many :evaluations, class_name: "RSEvaluation", as: :source
 
   has_attached_file :avatar,
-     :styles => { :full => "80x80#", :thumb => "40x40#" }#,
-  #  :storage => :s3,
-  # :s3_credentials => {
-  #   :access_key_id => ENV['S3_KEY'],
-  #   :secret_access_key => ENV['S3_SECRET']
-  # },
-  # :bucket => ENV['S3_BUCKET'],
-  # :path => ":attachment/:id"
+     :styles => { :full => "80x80#", :thumb => "40x40#" },
+   :storage => :s3,
+  :s3_credentials => {
+    :access_key_id => ENV['S3_KEY'],
+    :secret_access_key => ENV['S3_SECRET']
+  },
+  :bucket => ENV['S3_BUCKET'],
+  :path => ":attachment/:id"
 
   validates_attachment :avatar, 
   :content_type => { :content_type => ['image/jpeg', 'image/jpg', 'image/png'] },
