@@ -1,13 +1,10 @@
 <div class="row">
   <div class="span12 startup-discussion">
-    
     <div class="row">
       <div class="span2 discussion-vote-meta">
         <div class="vote-arrows">
-          <% if current_user%>
-            <%= link_to (raw("<i class='icon-caret-up vote-arrows'></i>")), vote_startup_discussion_path(@d.get_startup, @d, type: "up"), method: "post" %>
-            <%= link_to (raw("<i class='icon-caret-down vote-arrows'></i>")), vote_startup_discussion_path(@d.get_startup, @d, type: "down"), method: "post" %>
-          <% end %>
+          <%= link_to (raw("<i class='icon-caret-up vote-arrows'></i>")), vote_startup_discussion_path(@d.get_startup, @d, type: "up"), method: "post" %>
+          <%= link_to (raw("<i class='icon-caret-down vote-arrows'></i>")), vote_startup_discussion_path(@d.get_startup, @d, type: "down"), method: "post" %>
         </div>
         <h6><%= @d.reputation_value_for(:votes).to_i%></h6>
         <div class="topic-icon rounded">
@@ -29,6 +26,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>      

@@ -1,6 +1,6 @@
 
 <div class="row">
-  <div class="span12 startup_profile rounded-corners shadow">
+  <div class="span12 startup_profile top-rounded-corners shadow">
     <div class="row">
       <div class="span12 su_title_bar top-rounded-corners">
         <div class="su_logo_div">
@@ -16,50 +16,10 @@
         <%=image_tag @startup.screenshot.url%>
       </div>
     </div>
-    <div class="row">
-      <div class="span4 su_meta">
-        
-        <div class="su_meta_icon">
-          <i class="icon-home"></i>
-          <h2><%= link_to @startup.url, "http://"+@startup.url.to_s, :target => '_blank'%></h2>
-        </div>
-        <div class="su_meta_icon">
-          <i class="icon-twitter"></i>
-          <h2><%= link_to @startup.twitter.to_s, "http://twitter.com/#!/"+@startup.twitter, :target => '_blank' %></h2>
-        </div>
-        
-      </div>
-      <div class="span8 tags">
-        <div class="tags_outer">
-          <div class="su_meta_icon tags_inner">
-            <i class="icon-tags"></i>
-            <% @startup.tags.each do |tag| %>
-              <%= tag.name %><% if @startup.tags.last != tag %> + <% end %>
-            <% end %> 
-          </div> 
-        </div>
-        <div class="su_meta_icon">
-          <i class="icon-bar-chart"></i>
-          <h2><%= link_to "CrunchBase Profile", @startup.crunchbase, :target => '_blank' %></h2>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span12">
-        
-      </div>
-    </div>
+    <%= render 'startups/show_meta', :locals => {:startup => @startup} %>
     
-    <div class="row">
-      <div class="span12 add_discussion_box dashed">
-        <div class="add_discussion">
-          <i class="icon-plus-sign"></i><h2><%= link_to 'New Discussion', new_startup_discussion_path(@startup) %></h2>
-          <% if can? :update, Startup %>
-            <i class="icon-edit"></i><%= link_to 'Edit this page', edit_startup_path(@startup) %>
-          <% end %> 
-        </div>
-      </div>
-    </div>
+    <%= render 'startups/discussion_bar', :locals => {:startup => @startup} %>
+  
 
 
     <div class="row">

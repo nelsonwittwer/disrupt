@@ -8,6 +8,7 @@ $highlight: #F26101;
 $lgray: #ccc;
 $llgray: #F8F8F8;
 $dgray: #7A7979;
+$i_link:#003354;
 
 
 @mixin box_sizing {
@@ -23,7 +24,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  
   background-image:url('light_wool.png');
   background-repeat:repeat;
 
@@ -328,29 +329,48 @@ footer {
 
 .startup_profile{
   background-color:white;
- 
-  
+ .su_meta{
+  display:inline;
+  text-align: center;
+  padding-top:3%;
+  h4{
+    font-weight: normal;
+    font-size: 1.5em;
+    maring-top:3%;
+  }
   .su_meta_icon{
-    clear: both;
-    margin-top:10px;
-    margin-bottom:10px;
+    margin-top:5%;
     i{
-      float:left;
-      font-size:24px;
-      padding-left:50px;
-      padding-right:10px;
+      font-size:1.8em;
       color:$dgray;
     }
   }
-  .tags_outer{
-    font-size:24px;
-    clear:both;
   }
-  .tags_inner{
-    float:left;
-    padding-bottom:20px;
-  }
+}
 
+.disruptage_button{
+
+  display:inline;
+  border-style:solid;
+  border-width:2px;
+  border-color:white;
+  background-color:$lgray;
+  width:150px;
+  height:30px;
+  padding:10px;
+  margin-right:10px;
+
+  i{
+    color:white;
+    position: relative;
+    font-size:1.5em;
+    top:4px;
+    margin-right: 1%;
+  }
+  a{
+    color:white;
+  }
+  
 }
 
 .su_admin{
@@ -380,31 +400,24 @@ footer {
 .add_discussion_box{
   background-color:$llgray;
   text-transform:lowercase;
-  height:50px;
+  height:60px;
   margin-top:20px;
   margin-bottom:20px;
   .add_discussion{
-    padding-top:12px;
+    padding-top:19px;
     display:block;
     margin-left:auto;
     margin-right:auto;
     text-align:center;
     h2{
       display:inline;
-    }
-    i{
-      font-size:25px;
-      padding-right:5px;
-      color:$highlight;
-      position: relative;
-      top:2px;
+      margin-right:3%;
     }
   }
 }
 
 .startup-discussion{
-  padding-bottom:15px;
-  padding-top:15px;
+  padding-bottom:5%;
   h3{
     font-weight:normal;
     padding-bottom:5px;
@@ -412,7 +425,8 @@ footer {
 }
 .discussions{
   background-color:white;
-  margin-top:20px;
+  margin-top:4%;
+  margin-bottom:4%;
 }
 
 .topic-icon{
@@ -486,34 +500,14 @@ footer {
 
   .topic-icon{
     margin-left:15px;
+    margin-top:0px;
   }
 }
 
 .discussion_title{
-  margin-left:20px;
+  padding-left:3%;
 }
 
-.discussion_user{
-  float:left;
-  margin-bottom:10px;
-  margin-left:20px;
-  h4{
-    display: inline;
-  }
-  img{
-    padding-right:10px;
-  }
-  .discussion_user_name{
-    display: inline;
-    position: relative;
-    bottom:15px;
-  }
-}
-
-.user_avatar{
-  max-width:50px;
-  max-height:50px;
-}
 
 .social{
   display:inline;
@@ -601,27 +595,8 @@ footer {
   font-size:18px;
   margin:20px 0px 20px 0px;
   padding:15px;
-  i{
-    font-size:30px;
-    padding-right:7px;
-    color:$base;
-  }
-  .new_comment{
-    display:inline;
-    border-style:solid;
-    border-width:2px;
-    border-color:white;
-    background-color:$lgray;
-    width:150px;
-    height:30px;
-    padding:10px;
-    margin-right:10px;
-  }
-  .icon-comments{
-    color:white;
-    position: relative;
-    top:5px;
-  }
+  color:$base;
+
 }
 
 .comment {
@@ -648,7 +623,7 @@ footer {
 .comment_author{
   color:$dgray;
   color:$dgray;
-  margin-left:70px;
+  margin-left:3%;
   h3{
     padding-right:7px;
   }

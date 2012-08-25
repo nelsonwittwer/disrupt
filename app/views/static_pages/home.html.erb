@@ -43,8 +43,8 @@
 			</div>
 
 			<div class="row spotlight">
-				<div class="span12 startup_of_the_week">
-					<h2><i class="icon-chevron-down hidden-phone"></i>   this week's startup   <i class="icon-chevron-down hidden-phone"></i></h2>
+				<div class="span12 startup_of_the_week hidden-phone">
+					<h2><i class="icon-chevron-down"></i>   this week's startup   <i class="icon-chevron-down"></i></h2>
 				</div>
 			</div>
 
@@ -58,7 +58,7 @@
 						<div class="span7">
 							<h2><i>We</i> showcase amazing disruptive companies, <i>you</i> share your insights about marketing, code, sales, or whatever you know.</h2><h2 id="learn_a_ton"> <i>We</i> all learn a ton. </h2>
 						</div>
-						<div class="span4">
+						<div class="span4 hidden-phone">
 							<%= image_tag "Topics-Splash.png"%>
 						</div>
 					</div>
@@ -74,7 +74,7 @@
 	<% if Startup.last && Startup.last.discussions.first %>
 			<% @startup = Startup.last %>
 			<div class="row">
-				<div class="span12">
+				<div class="span12 home_startup_logo">
 					<%= image_tag @startup.startup_logo.url %>
 				</div>
 			</div>

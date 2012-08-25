@@ -1,0 +1,16 @@
+<div class="row">
+  <section class="su_meta">
+    <div class="offset3 span2 su_meta_icon">
+      <i class="icon-home"></i>
+      <h2><%= link_to @startup.url, "http://"+@startup.url.to_s, :target => '_blank'%></h2>
+    </div>
+    <div class="span2 su_meta_icon">
+      <i class="icon-twitter"></i>
+      <h2><%= link_to @startup.twitter.to_s, "http://twitter.com/#!/"+@startup.twitter, :target => '_blank' %></h2>
+    </div>
+    <div class="span3 su_meta_icon">
+      <i class="icon-bar-chart"></i>
+      <h2><%= link_to "CrunchBase Profile", "http://crunchbase.com/company/"+@startup.crunchbase, :target => '_blank' %></h2>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="span12 add_discussion_box dashed">
+    <div class="add_discussion">
+      <div class="disruptage_button rounded-corners">
+        <i class="icon-plus-sign"></i>
+        <%= link_to 'New Discussion', new_startup_discussion_path(@startup) %>             
+      </div>
+      
+      <% if can? :update, Startup %>
+        <div class="disruptage_button rounded-corners">
+          <i class="icon-edit"></i><%= link_to 'Edit this page', edit_startup_path(@startup) %>
+        </div>
+      <% end %> 
+    </div>
+  </div>
+</div>
