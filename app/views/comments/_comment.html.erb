@@ -1,11 +1,15 @@
 <div class="row">
 	<div class="span12">
 		<div class="comment">
-			
 			<div class="comment_author">
 				<h4><%=display_user(comment.user)%></h4>
 			</div>
 			<div class="comment_text">
+				<div class="vote-arrows">
+					<%= link_to (raw("<i class='icon-caret-up vote-arrows'></i>")), vote_startup_discussion_comment_path(@startup, @discussion, comment, type: "up"), method: "post" %>
+					<%= link_to (raw("<i class='icon-caret-down vote-arrows'></i>")), vote_startup_discussion_comment_path(@startup, @discussion, comment, type: "down"), method: "post" %>
+		        </div>
+		        <%= pluralize comment.reputation_value_for(:votes).to_i, "vote" %>
 				<p><%= comment.text %></p>
 			</div>
 			<div class="comment_actions">
@@ -24,6 +28,4 @@
 			</div>
 		</div>
 	</div>
-
-	
 </div>

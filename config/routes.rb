@@ -11,10 +11,11 @@ Disrupt::Application.routes.draw do
   resources :images
 
   resources :startups do
-    resources :pictures
   	resources :discussions do
       member{post :vote} 
-      resources :comments
+      resources :comments do
+        member{post :vote} 
+      end
     end
   end
 

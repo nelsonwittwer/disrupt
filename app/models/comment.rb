@@ -17,6 +17,7 @@ class Comment < ActiveRecord::Base
   belongs_to :imageable, :polymorphic => true
   belongs_to :user
   has_ancestry
+  has_reputation :votes, source: :user, aggregated_by: :sum
 
   validates :text, :user_id, :imageable_id, :presence => true
 
