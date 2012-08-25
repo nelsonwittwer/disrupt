@@ -28,18 +28,16 @@ class Startup < ActiveRecord::Base
   has_attached_file :screenshot,
   :storage => :s3,
    :s3_credentials => {
-    :access_key_id => ENV['S3_KEY'] ? :s3 : :filesystem,
-    :secret_access_key => ENV['S3_SECRET'] ? :s3 : :filesystem,
-  },
-  :bucket => ENV['S3_BUCKET'] ? :s3 : :filesystem,  
+    :access_key_id => ENV['S3_KEY'],
+    :secret_access_key => ENV['S3_SECRET']},
+  :bucket => ENV['S3_BUCKET'],  
    :path => "/images/screenshots/:filename"
   has_attached_file :startup_logo,
   :storage => :s3,
    :s3_credentials => {
-    :access_key_id => ENV['S3_KEY'] ? :s3 : :filesystem,
-    :secret_access_key => ENV['S3_SECRET'] ? :s3 : :filesystem
-  },
-  :bucket => ENV['S3_BUCKET'] ? :s3 : :filesystem,
+    :access_key_id => ENV['S3_KEY'],
+    :secret_access_key => ENV['S3_SECRET']},
+  :bucket => ENV['S3_BUCKET'],
     :path => "/images/logos/:filename"
  
   
