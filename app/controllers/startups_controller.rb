@@ -6,7 +6,7 @@ class StartupsController < ApplicationController
   # GET /startups
   # GET /startups.json
   def index
-    @startups = Startup.all
+    @startups = Startup.all(:order => "created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb

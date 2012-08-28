@@ -195,7 +195,7 @@ padding-right: 4px;
 
 footer {
   background-image:url('footer-background.png');
-  padding-top: 5px;
+  padding-top: 15%;
   border-top: 2px solid $base;
   border-bottom: 2px solid $base;
   /*min-height: 222px;*/
@@ -266,11 +266,7 @@ footer {
   -khtml-border-bottom-left-radius: 8px;
   border-top-bottom-radius: 8px;
 }
-.startup_index_logo{
-  margin-top:10px;
-  max-width:150px;
-  max-height:50px;
-}
+
 
 .su_index_descr {
   margin-top: 20px;
@@ -278,17 +274,20 @@ footer {
 }
 
 .startup_index_meta{
-  width:75%;
+  width:85%;
   display:block;
   margin-left:auto;
   margin-right:auto;
-  padding-bottom:20px;
   i{
     padding-right:7px;
     font-size:20px;
   }
   h3{
     display:inline;
+  }
+  img{
+    max-height:100px;
+    padding-top:7%;
   }
 }
 
@@ -313,10 +312,9 @@ footer {
   .su_logo_div{
     float: left;
     img{
-      max-height: 57%;
-      padding-top: 10%;
-      padding-left: 7%;
-      padding-right: 7%;
+      max-height:100px;
+      padding:3%;
+      padding-right:10%;
     }
   }
   .su_logo{
@@ -345,6 +343,9 @@ footer {
       color:$dgray;
     }
   }
+  }
+  .screenshot{
+    padding-top:4%;
   }
 }
 
