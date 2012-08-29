@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   def create
     #@user = User.new(params[:user])
     @mixpanel.append_api("Sign up", {:name => @user.name})
-    @mixpanel.append_api("identify", @user.id)
+    @mixpanel.append_api("identify", @user.id.to_s)
 
     respond_to do |format|
       if @user.save
