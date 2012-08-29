@@ -1,10 +1,18 @@
 class ApplicationController < ActionController::Base
 	protect_from_forgery
 	
-	before_filter :store_location
+	before_filter :store_location, :initialize_mixpanel
 	
 	rescue_from CanCan::AccessDenied do |exception|
 		redirect_to root_url, :alert => exception.message
+	end
+
+	def initialize_mixpanel
+	  if defined?(MIXPANEL_TOKEN)
+	    @mixpanel = Mixpanel.new(MIXPANEL_TOKEN, request.env)
+	  else
+	    @mixpanel = DummyMixpanel.new
+	  end
 	end
 
 	

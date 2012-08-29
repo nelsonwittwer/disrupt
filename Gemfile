@@ -20,6 +20,7 @@ gem 'chosen-rails'
 gem 'font-awesome-sass-rails'
 gem 'heroku'
 gem 'activerecord-reputation-system', require: 'reputation_system'
+gem 'mixpanel'
 
 
 group :development, :test do
