@@ -1,3 +1,3 @@
-export S3_BUCKET=disruptage
-export S3_KEY=AKIAJA5SWYIIOXUANNRA
-export S3_SECRET=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
+
+
+

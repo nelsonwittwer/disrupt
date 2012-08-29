@@ -10,7 +10,7 @@
                         <%=image_tag startup.startup_logo.url%>
                     </div>
                     <p class="su_index_descr"><%= startup.description %></p>
-                    <i class="icon-comments"></i><h3><%= startup.discussions.count %> <%=link_to "discussions", startup_path(startup)%></h3></br >
+                    <i class="icon-comments"></i><h3><%= link_to (pluralize(startup.discussions.count, "discussion")), startup_path(startup)%> </h3></br >
                     <% if can? :update, startup %>
                         <%= link_to 'Edit', edit_startup_path(startup) %>
                     <% end %>
