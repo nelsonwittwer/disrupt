@@ -36,8 +36,8 @@ class User < ActiveRecord::Base
   has_reputation :votes, source: {reputation: :votes, of: :discussions}, aggregated_by: :sum
   has_many :evaluations, class_name: "RSEvaluation", as: :source
 
-  has_attached_file :avatar,
-     :styles => { :full => "80x80#", :thumb => "40x40#" }#,
+  has_attached_file :avatar#,
+  #    :styles => { :full => "80x80#", :thumb => "40x40#" },
   #  :storage => :s3,
   # :s3_credentials => {
   #   :access_key_id => ENV['S3_KEY'],
