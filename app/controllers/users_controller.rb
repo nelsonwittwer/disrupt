@@ -46,8 +46,8 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     #@user = User.new(params[:user])
-    @mixpanel.track_event("Sign up", {:name => @user.name})
-    @mixpanel.people.identify(@user.id)
+    @mixpanel.append_api("Sign up", {:name => @user.name})
+    @mixpanel.append_api("identify", @user.id)
 
     respond_to do |format|
       if @user.save
