@@ -1,3 +1,8 @@
 <% flash.each do |key, value| %>
 	<%= content_tag(:div, value, class: "alert alert-#{key} shadow") %>
+	<% if value == "Welcome back! You are now logged in." %>
+		<%= javascript_tag do %>
+			mixpanel.people.identify('<%= current_user.id%>');
+		<% end %>
+	<% end %>
 <% end %>
