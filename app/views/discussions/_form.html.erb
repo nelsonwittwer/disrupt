@@ -6,6 +6,12 @@
 </div>
 <div class="row">
 	<div class="span11 offset1">
+		<%= f.input :discussion_body, as: :text %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span11 offset1">
 	  <%= f.association :topic, as: :select%>
 	  <%= f.hidden_field :user_id %>
 	</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120823221645) do
+ActiveRecord::Schema.define(:version => 20120901013820) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
@@ -30,10 +30,11 @@ ActiveRecord::Schema.define(:version => 20120823221645) do
     t.string   "title"
     t.integer  "imageable_id"
     t.string   "imageable_type"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "topic_id"
     t.integer  "user_id"
+    t.text     "discussion_body"
   end
 
   add_index "discussions", ["topic_id"], :name => "index_discussions_on_topic_id"

@@ -3,7 +3,7 @@
 <%= simple_form_for(resource, :as => resource_name, :html => { :multipart => true }, :html => { :class => 'form-horizontal' }, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
   <div class="row">
-    <div class="span12 rounded-corners shadow inputs registration">
+    <div class="span12 top-rounded-corners shadow inputs registration">
       <div class="row">
         <div class="span6">
           <h1>Join the Club</h1>
@@ -12,6 +12,7 @@
             <%= f.input :email, :required => true, :autofocus => true, :input_html => { :class => "span4" } %>
             <%= f.input :password, :required => true, :input_html => { :class => "span4" } %>
             <%= f.input :password_confirmation, :required => true, :input_html => { :class => "span4" } %>
+
             <%= f.file_field :avatar %>
             
            

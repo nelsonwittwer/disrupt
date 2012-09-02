@@ -26,6 +26,7 @@
 			            	<div class="row">
 			            		<div class="span10 discussion_title"> 
 									<h2><%=@discussion.title %></h2>
+									<p><%= @discussion.discussion_body if @discussion.discussion_body%></p>
 									<div class="row">
 										<div class="span1">
 											<%= display_avatar_thumb(@discussion.user) %>
