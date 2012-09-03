@@ -24,6 +24,7 @@
 
     <div class="row">
       <div class="span12 discussions">
+        <a name="startup_discussions"></a>
         <% @startup.discussions.each do |d| %>
         <% @d = d %>
           <%= render 'startups/discussion', :locals => {:startup => @startup, :discussion => @d} %>

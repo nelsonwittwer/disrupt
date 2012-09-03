@@ -22,6 +22,9 @@ describe Discussion do
         it "should have comments" do
         	@discussion.should respond_to(:comments)
         end
+        it "should have a body" do
+            @discussion.should respond_to(:discussion_body)
+        end
     end
 
     context "should pass validators" do

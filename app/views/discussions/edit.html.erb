@@ -1,4 +1,8 @@
-<h1>Editing discussion</h1>
+<% provide(:title, 'Edit Your Discussion') %>
+<div class="row">
+	<div class="span12 new_discussion_form rounded-corners shadow">
+		<h2 class="offset1">Edit Your Discussion About <%= @startup.name %></h2>
 
 <%= render 'form' %>
-
+	</div>
+</div>

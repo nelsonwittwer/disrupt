@@ -13,7 +13,7 @@
 #
 
 class Discussion < ActiveRecord::Base
-  attr_accessible :title, :topic_id, :user_id
+  attr_accessible :title, :topic_id, :user_id, :discussion_body
   belongs_to :imageable, :polymorphic => true
   belongs_to :topic
   belongs_to :user
