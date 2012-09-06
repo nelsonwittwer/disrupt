@@ -25,7 +25,7 @@ class DiscussionsController < ApplicationController
     @discussion = @startup.discussions.find(params[:id])
     @comments = @discussion.comments.scoped
 
-    if request.path != startup_discussion_path(@startup)
+    if request.path != startup_discussion_path(@startup, @discussion)
       redirect_to @discussion, status: :moved_permanently
     end
 
