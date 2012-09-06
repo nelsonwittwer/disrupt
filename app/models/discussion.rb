@@ -22,6 +22,9 @@ class Discussion < ActiveRecord::Base
   validates :title, :uniqueness => true
   validates :user_id, :presence => true
 
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :history]
+
   has_reputation :votes, source: :user, aggregated_by: :sum, :dependent => :destroy
   
   def get_startup

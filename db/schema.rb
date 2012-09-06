@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120901013820) do
+ActiveRecord::Schema.define(:version => 20120906133627) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
@@ -35,10 +35,23 @@ ActiveRecord::Schema.define(:version => 20120901013820) do
     t.integer  "topic_id"
     t.integer  "user_id"
     t.text     "discussion_body"
+    t.string   "slug"
   end
 
+  add_index "discussions", ["slug"], :name => "index_discussions_on_slug"
   add_index "discussions", ["topic_id"], :name => "index_discussions_on_topic_id"
   add_index "discussions", ["user_id"], :name => "index_discussions_on_user_id"
+
+  create_table "friendly_id_slugs", :force => true do |t|
+    t.string   "slug",                         :null => false
+    t.integer  "sluggable_id",                 :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
+  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "images", :force => true do |t|
     t.integer  "imageable_id"
@@ -133,6 +146,7 @@ ActiveRecord::Schema.define(:version => 20120901013820) do
     t.string   "startup_logo_content_type"
     t.integer  "startup_logo_file_size"
     t.datetime "startup_logo_updated_at"
+    t.string   "slug"
   end
 
   create_table "taggings", :force => true do |t|

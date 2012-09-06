@@ -25,6 +25,10 @@ class DiscussionsController < ApplicationController
     @discussion = @startup.discussions.find(params[:id])
     @comments = @discussion.comments.scoped
 
+    if request.path != startup_discussion_path(@startup)
+      redirect_to @discussion, status: :moved_permanently
+    end
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @discussion }

@@ -20,7 +20,7 @@ gem 'chosen-rails'
 gem 'font-awesome-sass-rails'
 gem 'heroku'
 gem 'activerecord-reputation-system', require: 'reputation_system'
-
+gem "friendly_id", "~> 4.0.1"
 
 group :development, :test do
   gem 'rspec-rails'

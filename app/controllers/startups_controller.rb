@@ -19,6 +19,10 @@ class StartupsController < ApplicationController
   def show
     @startup = Startup.find(params[:id])
 
+    if request.path != startup_path(@startup)
+      redirect_to @startup, status: :moved_permanently
+    end
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @startup }
